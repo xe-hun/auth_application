@@ -8,12 +8,19 @@ class AuthState with _$AuthState {
     required RegisterProperties registerProperties,
     required LoginProperties loginProperties,
     String? errorMessage,
+    String? snackbarMessage,
     bool? isLoading,
   }) = _NotAuthenticated;
 }
 
 class RegisterProperties {
   RegisterProperties();
+
+  dispose() {
+    _nameTEC.dispose();
+    _emailTEC.dispose();
+    _passwordTEC.dispose();
+  }
 
   final TextEditingController _nameTEC = TextEditingController();
   final TextEditingController _emailTEC = TextEditingController();
@@ -30,6 +37,12 @@ class RegisterProperties {
 
 class LoginProperties {
   LoginProperties();
+
+  dispose() {
+    _emailTEC.dispose();
+    _passwordTEC.dispose();
+  }
+
   final TextEditingController _passwordTEC = TextEditingController();
   final TextEditingController _emailTEC = TextEditingController();
 

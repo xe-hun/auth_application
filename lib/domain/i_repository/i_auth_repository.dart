@@ -7,4 +7,9 @@ abstract class IAuthRepository {
       {required String email, required String password});
   Future<Either<AuthFailure, Unit>> register(
       {required String email, required String password, required String name});
+
+  Future<Either<AuthFailure, Unit>> sendOtp({required String email});
+  Future<Either<AuthFailure, Unit>> verifyOtp({required String otp});
+
+  Future<Either<AuthFailure, Unit>> logout();
 }

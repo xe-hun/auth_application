@@ -1,4 +1,5 @@
 import 'package:auth_appication/domain/failures/auth_failure.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
@@ -19,12 +20,16 @@ abstract class FireBaseDatasource {
 
   Future<void> logout();
 
+  Future<void> validateEmail();
+
+  Future<bool> emailIsValidated();
+
   // Future<void> sendEmailVerificationLink();
 }
 
 @LazySingleton(as: FireBaseDatasource)
 class FireBaseDatasourceImpl implements FireBaseDatasource {
-  FireBaseDatasourceImpl(this.firebaseAuth) {
+  FireBaseDatasourceImpl(this.firebaseAuth, this.fireStore) {
     // handleDynamicLinks();
 
     // _user = firebaseAuth.currentUser;
@@ -40,6 +45,7 @@ class FireBaseDatasourceImpl implements FireBaseDatasource {
   }
 
   final FirebaseAuth firebaseAuth;
+  final FirebaseFirestore fireStore;
   // User? _user;
 
   @override
@@ -58,6 +64,8 @@ class FireBaseDatasourceImpl implements FireBaseDatasource {
 
       await user.updateDisplayName(name);
       await user.reload();
+
+      // user.
 
       return user;
     } on FirebaseAuthException catch (e) {
@@ -106,8 +114,33 @@ class FireBaseDatasourceImpl implements FireBaseDatasource {
     firebaseAuth.signOut();
   }
 
+  final String _userCollectionName = 'user';
+  final String _validateField = 'verify';
+
   @override
   User? get getUser => firebaseAuth.currentUser;
+
+  @override
+  Future<bool> emailIsValidated() async {
+    if (getUser == null) {
+      return false;
+    }
+
+    final userDoc =
+        await fireStore.collection(_userCollectionName).doc(getUser!.uid).get();
+    if (userDoc.exists) {
+      return userDoc.data()![_validateField] as bool;
+    }
+    return false;
+  }
+
+  @override
+  Future<void> validateEmail() async {
+    await fireStore
+        .collection(_userCollectionName)
+        .doc(getUser!.uid)
+        .set({_validateField: true});
+  }
 
   // @override
   // bool? get emailIsVerified => _user?.emailVerified;

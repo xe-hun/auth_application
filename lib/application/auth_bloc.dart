@@ -35,10 +35,51 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                   errorMessage: _getErrorText(l),
                 )),
                 (r) {
+                  add(const AuthEvent.sendOtp());
                   e.onSuccessful();
-                  emit(s.copyWith(isLoading: false));
+                  emit(s.copyWith(
+                    isLoading: false,
+                  ));
                 },
               );
+            },
+          );
+        },
+        sendOtp: (e) async {
+          await state.mapOrNull(notAuthenticated: (s) async {
+            emit(s.copyWith(isLoading: true, errorMessage: null));
+            (await authRepository.sendOtp(email: s.registerProperties.email))
+                .fold(
+                    (l) => emit(s.copyWith(
+                        errorMessage: _getErrorText(l), isLoading: false)),
+                    (r) => emit(s.copyWith(
+                        snackbarMessage: 'Otp Sent Successfully',
+                        errorMessage: null,
+                        isLoading: false)));
+          });
+        },
+        verifyOtp: (e) async {
+          await state.mapOrNull(notAuthenticated: (s) async {
+            // emit(s.copyWith(isLoading: true, errorMessage: null));
+            (await authRepository.verifyOtp(otp: e.otp)).fold(
+                (l) => emit(s.copyWith(
+                      errorMessage: _getErrorText(l),
+                    )), (r) {
+              e.onVerifySuccess();
+              emit(const AuthState.authenticated());
+            }
+                //navigation is automatically done in authListener in main page.
+                );
+          });
+        },
+        logout: (e) async {
+          await state.mapOrNull(
+            authenticated: (s) async {
+              await authRepository.logout();
+              e.onLogout();
+              emit(AuthState.notAuthenticated(
+                  registerProperties: RegisterProperties(),
+                  loginProperties: LoginProperties()));
             },
           );
         },
@@ -56,6 +97,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         userNotFound: (e) => 'Enter a valid email or password',
         wrongPassword: (e) => 'Enter a valid email or password',
         invalidEmail: (e) => 'Email is not valid',
-        authGenericFailure: (e) => 'Error!');
+        authGenericFailure: (e) => 'Error!',
+        errorSendingOtp: (e) => 'Error Sending otp',
+        wrongOtp: (e) => 'You inputed the wrong otp');
   }
 }

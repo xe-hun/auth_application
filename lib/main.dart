@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
       create: (context) => getIt<AuthBloc>()..add(const AuthEvent.started()),
       child: MaterialApp.router(
         title: 'Authentication Application',
-        theme:
-            ThemeData(primarySwatch: Colors.blue, brightness: Brightness.light),
+        theme: ThemeData(
+            primarySwatch: Colors.amber, brightness: Brightness.light),
         routeInformationParser: appRouter.defaultRouteParser(),
         routerDelegate: appRouter.delegate(),
         debugShowCheckedModeBanner: false,

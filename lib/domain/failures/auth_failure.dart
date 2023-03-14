@@ -8,6 +8,8 @@ class AuthFailure<T> with _$AuthFailure<T> {
   const factory AuthFailure.weekPassword() = _WeekPassword;
   const factory AuthFailure.accountAlreadyExist(T email) =
       _AccountAlreadyExist<T>;
+  const factory AuthFailure.errorSendingOtp() = _ErrorSendingOtp;
+  const factory AuthFailure.wrongOtp() = _WrongOtp;
   const factory AuthFailure.userNotFound() = _UserNotFound;
   const factory AuthFailure.invalidEmail() = _InvalidEmail;
   const factory AuthFailure.wrongPassword() = _WrongPassword;
