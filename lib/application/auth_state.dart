@@ -7,8 +7,8 @@ class AuthState with _$AuthState {
   const factory AuthState.notAuthenticated({
     required RegisterProperties registerProperties,
     required LoginProperties loginProperties,
-    String? errorText,
-    bool? isLoadiing,
+    String? errorMessage,
+    bool? isLoading,
   }) = _NotAuthenticated;
 }
 
@@ -30,12 +30,12 @@ class RegisterProperties {
 
 class LoginProperties {
   LoginProperties();
-  final TextEditingController _nameTEC = TextEditingController();
+  final TextEditingController _passwordTEC = TextEditingController();
   final TextEditingController _emailTEC = TextEditingController();
 
-  String get name => _nameTEC.text;
+  String get name => _passwordTEC.text;
   String get email => _emailTEC.text;
 
-  TextEditingController get nameTEC => _nameTEC;
+  TextEditingController get passwordTEC => _passwordTEC;
   TextEditingController get emailTEC => _emailTEC;
 }

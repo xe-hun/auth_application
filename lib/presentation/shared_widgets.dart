@@ -1,7 +1,8 @@
 import 'package:auth_appication/presentation/sizes.dart';
 import 'package:flutter/material.dart';
 
-Widget buildTextInputField({required String label}) {
+Widget buildTextInputField(
+    {required String label, required TextEditingController tec}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -14,6 +15,7 @@ Widget buildTextInputField({required String label}) {
       ),
       const SizedBox(height: 8),
       TextField(
+        controller: tec,
         style: TextStyle(fontSize: displaySize2),
         decoration: InputDecoration(
           contentPadding:

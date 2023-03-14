@@ -442,8 +442,8 @@ mixin _$AuthState {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)
+            String? errorMessage,
+            bool? isLoading)
         notAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
@@ -454,8 +454,8 @@ mixin _$AuthState {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)?
+            String? errorMessage,
+            bool? isLoading)?
         notAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
@@ -466,8 +466,8 @@ mixin _$AuthState {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)?
+            String? errorMessage,
+            bool? isLoading)?
         notAuthenticated,
     required TResult orElse(),
   }) =>
@@ -555,8 +555,8 @@ class _$_Initial implements _Initial {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)
+            String? errorMessage,
+            bool? isLoading)
         notAuthenticated,
   }) {
     return initial();
@@ -570,8 +570,8 @@ class _$_Initial implements _Initial {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)?
+            String? errorMessage,
+            bool? isLoading)?
         notAuthenticated,
   }) {
     return initial?.call();
@@ -585,8 +585,8 @@ class _$_Initial implements _Initial {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)?
+            String? errorMessage,
+            bool? isLoading)?
         notAuthenticated,
     required TResult orElse(),
   }) {
@@ -678,8 +678,8 @@ class _$_Authenticated implements _Authenticated {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)
+            String? errorMessage,
+            bool? isLoading)
         notAuthenticated,
   }) {
     return authenticated();
@@ -693,8 +693,8 @@ class _$_Authenticated implements _Authenticated {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)?
+            String? errorMessage,
+            bool? isLoading)?
         notAuthenticated,
   }) {
     return authenticated?.call();
@@ -708,8 +708,8 @@ class _$_Authenticated implements _Authenticated {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)?
+            String? errorMessage,
+            bool? isLoading)?
         notAuthenticated,
     required TResult orElse(),
   }) {
@@ -767,8 +767,8 @@ abstract class _$$_NotAuthenticatedCopyWith<$Res> {
   $Res call(
       {RegisterProperties registerProperties,
       LoginProperties loginProperties,
-      String? errorText,
-      bool? isLoadiing});
+      String? errorMessage,
+      bool? isLoading});
 }
 
 /// @nodoc
@@ -784,8 +784,8 @@ class __$$_NotAuthenticatedCopyWithImpl<$Res>
   $Res call({
     Object? registerProperties = null,
     Object? loginProperties = null,
-    Object? errorText = freezed,
-    Object? isLoadiing = freezed,
+    Object? errorMessage = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_$_NotAuthenticated(
       registerProperties: null == registerProperties
@@ -796,13 +796,13 @@ class __$$_NotAuthenticatedCopyWithImpl<$Res>
           ? _value.loginProperties
           : loginProperties // ignore: cast_nullable_to_non_nullable
               as LoginProperties,
-      errorText: freezed == errorText
-          ? _value.errorText
-          : errorText // ignore: cast_nullable_to_non_nullable
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      isLoadiing: freezed == isLoadiing
-          ? _value.isLoadiing
-          : isLoadiing // ignore: cast_nullable_to_non_nullable
+      isLoading: freezed == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool?,
     ));
   }
@@ -814,21 +814,21 @@ class _$_NotAuthenticated implements _NotAuthenticated {
   const _$_NotAuthenticated(
       {required this.registerProperties,
       required this.loginProperties,
-      this.errorText,
-      this.isLoadiing});
+      this.errorMessage,
+      this.isLoading});
 
   @override
   final RegisterProperties registerProperties;
   @override
   final LoginProperties loginProperties;
   @override
-  final String? errorText;
+  final String? errorMessage;
   @override
-  final bool? isLoadiing;
+  final bool? isLoading;
 
   @override
   String toString() {
-    return 'AuthState.notAuthenticated(registerProperties: $registerProperties, loginProperties: $loginProperties, errorText: $errorText, isLoadiing: $isLoadiing)';
+    return 'AuthState.notAuthenticated(registerProperties: $registerProperties, loginProperties: $loginProperties, errorMessage: $errorMessage, isLoading: $isLoading)';
   }
 
   @override
@@ -840,15 +840,15 @@ class _$_NotAuthenticated implements _NotAuthenticated {
                 other.registerProperties == registerProperties) &&
             (identical(other.loginProperties, loginProperties) ||
                 other.loginProperties == loginProperties) &&
-            (identical(other.errorText, errorText) ||
-                other.errorText == errorText) &&
-            (identical(other.isLoadiing, isLoadiing) ||
-                other.isLoadiing == isLoadiing));
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, registerProperties, loginProperties, errorText, isLoadiing);
+  int get hashCode => Object.hash(runtimeType, registerProperties,
+      loginProperties, errorMessage, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -864,12 +864,12 @@ class _$_NotAuthenticated implements _NotAuthenticated {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)
+            String? errorMessage,
+            bool? isLoading)
         notAuthenticated,
   }) {
     return notAuthenticated(
-        registerProperties, loginProperties, errorText, isLoadiing);
+        registerProperties, loginProperties, errorMessage, isLoading);
   }
 
   @override
@@ -880,12 +880,12 @@ class _$_NotAuthenticated implements _NotAuthenticated {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)?
+            String? errorMessage,
+            bool? isLoading)?
         notAuthenticated,
   }) {
     return notAuthenticated?.call(
-        registerProperties, loginProperties, errorText, isLoadiing);
+        registerProperties, loginProperties, errorMessage, isLoading);
   }
 
   @override
@@ -896,14 +896,14 @@ class _$_NotAuthenticated implements _NotAuthenticated {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            String? errorText,
-            bool? isLoadiing)?
+            String? errorMessage,
+            bool? isLoading)?
         notAuthenticated,
     required TResult orElse(),
   }) {
     if (notAuthenticated != null) {
       return notAuthenticated(
-          registerProperties, loginProperties, errorText, isLoadiing);
+          registerProperties, loginProperties, errorMessage, isLoading);
     }
     return orElse();
   }
@@ -947,13 +947,13 @@ abstract class _NotAuthenticated implements AuthState {
   const factory _NotAuthenticated(
       {required final RegisterProperties registerProperties,
       required final LoginProperties loginProperties,
-      final String? errorText,
-      final bool? isLoadiing}) = _$_NotAuthenticated;
+      final String? errorMessage,
+      final bool? isLoading}) = _$_NotAuthenticated;
 
   RegisterProperties get registerProperties;
   LoginProperties get loginProperties;
-  String? get errorText;
-  bool? get isLoadiing;
+  String? get errorMessage;
+  bool? get isLoading;
   @JsonKey(ignore: true)
   _$$_NotAuthenticatedCopyWith<_$_NotAuthenticated> get copyWith =>
       throw _privateConstructorUsedError;

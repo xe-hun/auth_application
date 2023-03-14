@@ -22,6 +22,7 @@ mixin _$AuthFailure<T> {
     required TResult Function() weekPassword,
     required TResult Function(T email) accountAlreadyExist,
     required TResult Function() userNotFound,
+    required TResult Function() invalidEmail,
     required TResult Function() wrongPassword,
     required TResult Function(T failedValue) authGenericFailure,
   }) =>
@@ -32,6 +33,7 @@ mixin _$AuthFailure<T> {
     TResult? Function()? weekPassword,
     TResult? Function(T email)? accountAlreadyExist,
     TResult? Function()? userNotFound,
+    TResult? Function()? invalidEmail,
     TResult? Function()? wrongPassword,
     TResult? Function(T failedValue)? authGenericFailure,
   }) =>
@@ -42,6 +44,7 @@ mixin _$AuthFailure<T> {
     TResult Function()? weekPassword,
     TResult Function(T email)? accountAlreadyExist,
     TResult Function()? userNotFound,
+    TResult Function()? invalidEmail,
     TResult Function()? wrongPassword,
     TResult Function(T failedValue)? authGenericFailure,
     required TResult orElse(),
@@ -54,6 +57,7 @@ mixin _$AuthFailure<T> {
     required TResult Function(_AccountAlreadyExist<T> value)
         accountAlreadyExist,
     required TResult Function(_UserNotFound<T> value) userNotFound,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_WrongPassword<T> value) wrongPassword,
     required TResult Function(_AuthGenericFailure<T> value) authGenericFailure,
   }) =>
@@ -64,6 +68,7 @@ mixin _$AuthFailure<T> {
     TResult? Function(_WeekPassword<T> value)? weekPassword,
     TResult? Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult? Function(_UserNotFound<T> value)? userNotFound,
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
     TResult? Function(_WrongPassword<T> value)? wrongPassword,
     TResult? Function(_AuthGenericFailure<T> value)? authGenericFailure,
   }) =>
@@ -74,6 +79,7 @@ mixin _$AuthFailure<T> {
     TResult Function(_WeekPassword<T> value)? weekPassword,
     TResult Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult Function(_UserNotFound<T> value)? userNotFound,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_WrongPassword<T> value)? wrongPassword,
     TResult Function(_AuthGenericFailure<T> value)? authGenericFailure,
     required TResult orElse(),
@@ -141,6 +147,7 @@ class _$_NetworkFailure<T> implements _NetworkFailure<T> {
     required TResult Function() weekPassword,
     required TResult Function(T email) accountAlreadyExist,
     required TResult Function() userNotFound,
+    required TResult Function() invalidEmail,
     required TResult Function() wrongPassword,
     required TResult Function(T failedValue) authGenericFailure,
   }) {
@@ -154,6 +161,7 @@ class _$_NetworkFailure<T> implements _NetworkFailure<T> {
     TResult? Function()? weekPassword,
     TResult? Function(T email)? accountAlreadyExist,
     TResult? Function()? userNotFound,
+    TResult? Function()? invalidEmail,
     TResult? Function()? wrongPassword,
     TResult? Function(T failedValue)? authGenericFailure,
   }) {
@@ -167,6 +175,7 @@ class _$_NetworkFailure<T> implements _NetworkFailure<T> {
     TResult Function()? weekPassword,
     TResult Function(T email)? accountAlreadyExist,
     TResult Function()? userNotFound,
+    TResult Function()? invalidEmail,
     TResult Function()? wrongPassword,
     TResult Function(T failedValue)? authGenericFailure,
     required TResult orElse(),
@@ -185,6 +194,7 @@ class _$_NetworkFailure<T> implements _NetworkFailure<T> {
     required TResult Function(_AccountAlreadyExist<T> value)
         accountAlreadyExist,
     required TResult Function(_UserNotFound<T> value) userNotFound,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_WrongPassword<T> value) wrongPassword,
     required TResult Function(_AuthGenericFailure<T> value) authGenericFailure,
   }) {
@@ -198,6 +208,7 @@ class _$_NetworkFailure<T> implements _NetworkFailure<T> {
     TResult? Function(_WeekPassword<T> value)? weekPassword,
     TResult? Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult? Function(_UserNotFound<T> value)? userNotFound,
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
     TResult? Function(_WrongPassword<T> value)? wrongPassword,
     TResult? Function(_AuthGenericFailure<T> value)? authGenericFailure,
   }) {
@@ -211,6 +222,7 @@ class _$_NetworkFailure<T> implements _NetworkFailure<T> {
     TResult Function(_WeekPassword<T> value)? weekPassword,
     TResult Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult Function(_UserNotFound<T> value)? userNotFound,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_WrongPassword<T> value)? wrongPassword,
     TResult Function(_AuthGenericFailure<T> value)? authGenericFailure,
     required TResult orElse(),
@@ -268,6 +280,7 @@ class _$_WeekPassword<T> implements _WeekPassword<T> {
     required TResult Function() weekPassword,
     required TResult Function(T email) accountAlreadyExist,
     required TResult Function() userNotFound,
+    required TResult Function() invalidEmail,
     required TResult Function() wrongPassword,
     required TResult Function(T failedValue) authGenericFailure,
   }) {
@@ -281,6 +294,7 @@ class _$_WeekPassword<T> implements _WeekPassword<T> {
     TResult? Function()? weekPassword,
     TResult? Function(T email)? accountAlreadyExist,
     TResult? Function()? userNotFound,
+    TResult? Function()? invalidEmail,
     TResult? Function()? wrongPassword,
     TResult? Function(T failedValue)? authGenericFailure,
   }) {
@@ -294,6 +308,7 @@ class _$_WeekPassword<T> implements _WeekPassword<T> {
     TResult Function()? weekPassword,
     TResult Function(T email)? accountAlreadyExist,
     TResult Function()? userNotFound,
+    TResult Function()? invalidEmail,
     TResult Function()? wrongPassword,
     TResult Function(T failedValue)? authGenericFailure,
     required TResult orElse(),
@@ -312,6 +327,7 @@ class _$_WeekPassword<T> implements _WeekPassword<T> {
     required TResult Function(_AccountAlreadyExist<T> value)
         accountAlreadyExist,
     required TResult Function(_UserNotFound<T> value) userNotFound,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_WrongPassword<T> value) wrongPassword,
     required TResult Function(_AuthGenericFailure<T> value) authGenericFailure,
   }) {
@@ -325,6 +341,7 @@ class _$_WeekPassword<T> implements _WeekPassword<T> {
     TResult? Function(_WeekPassword<T> value)? weekPassword,
     TResult? Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult? Function(_UserNotFound<T> value)? userNotFound,
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
     TResult? Function(_WrongPassword<T> value)? wrongPassword,
     TResult? Function(_AuthGenericFailure<T> value)? authGenericFailure,
   }) {
@@ -338,6 +355,7 @@ class _$_WeekPassword<T> implements _WeekPassword<T> {
     TResult Function(_WeekPassword<T> value)? weekPassword,
     TResult Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult Function(_UserNotFound<T> value)? userNotFound,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_WrongPassword<T> value)? wrongPassword,
     TResult Function(_AuthGenericFailure<T> value)? authGenericFailure,
     required TResult orElse(),
@@ -423,6 +441,7 @@ class _$_AccountAlreadyExist<T> implements _AccountAlreadyExist<T> {
     required TResult Function() weekPassword,
     required TResult Function(T email) accountAlreadyExist,
     required TResult Function() userNotFound,
+    required TResult Function() invalidEmail,
     required TResult Function() wrongPassword,
     required TResult Function(T failedValue) authGenericFailure,
   }) {
@@ -436,6 +455,7 @@ class _$_AccountAlreadyExist<T> implements _AccountAlreadyExist<T> {
     TResult? Function()? weekPassword,
     TResult? Function(T email)? accountAlreadyExist,
     TResult? Function()? userNotFound,
+    TResult? Function()? invalidEmail,
     TResult? Function()? wrongPassword,
     TResult? Function(T failedValue)? authGenericFailure,
   }) {
@@ -449,6 +469,7 @@ class _$_AccountAlreadyExist<T> implements _AccountAlreadyExist<T> {
     TResult Function()? weekPassword,
     TResult Function(T email)? accountAlreadyExist,
     TResult Function()? userNotFound,
+    TResult Function()? invalidEmail,
     TResult Function()? wrongPassword,
     TResult Function(T failedValue)? authGenericFailure,
     required TResult orElse(),
@@ -467,6 +488,7 @@ class _$_AccountAlreadyExist<T> implements _AccountAlreadyExist<T> {
     required TResult Function(_AccountAlreadyExist<T> value)
         accountAlreadyExist,
     required TResult Function(_UserNotFound<T> value) userNotFound,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_WrongPassword<T> value) wrongPassword,
     required TResult Function(_AuthGenericFailure<T> value) authGenericFailure,
   }) {
@@ -480,6 +502,7 @@ class _$_AccountAlreadyExist<T> implements _AccountAlreadyExist<T> {
     TResult? Function(_WeekPassword<T> value)? weekPassword,
     TResult? Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult? Function(_UserNotFound<T> value)? userNotFound,
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
     TResult? Function(_WrongPassword<T> value)? wrongPassword,
     TResult? Function(_AuthGenericFailure<T> value)? authGenericFailure,
   }) {
@@ -493,6 +516,7 @@ class _$_AccountAlreadyExist<T> implements _AccountAlreadyExist<T> {
     TResult Function(_WeekPassword<T> value)? weekPassword,
     TResult Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult Function(_UserNotFound<T> value)? userNotFound,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_WrongPassword<T> value)? wrongPassword,
     TResult Function(_AuthGenericFailure<T> value)? authGenericFailure,
     required TResult orElse(),
@@ -555,6 +579,7 @@ class _$_UserNotFound<T> implements _UserNotFound<T> {
     required TResult Function() weekPassword,
     required TResult Function(T email) accountAlreadyExist,
     required TResult Function() userNotFound,
+    required TResult Function() invalidEmail,
     required TResult Function() wrongPassword,
     required TResult Function(T failedValue) authGenericFailure,
   }) {
@@ -568,6 +593,7 @@ class _$_UserNotFound<T> implements _UserNotFound<T> {
     TResult? Function()? weekPassword,
     TResult? Function(T email)? accountAlreadyExist,
     TResult? Function()? userNotFound,
+    TResult? Function()? invalidEmail,
     TResult? Function()? wrongPassword,
     TResult? Function(T failedValue)? authGenericFailure,
   }) {
@@ -581,6 +607,7 @@ class _$_UserNotFound<T> implements _UserNotFound<T> {
     TResult Function()? weekPassword,
     TResult Function(T email)? accountAlreadyExist,
     TResult Function()? userNotFound,
+    TResult Function()? invalidEmail,
     TResult Function()? wrongPassword,
     TResult Function(T failedValue)? authGenericFailure,
     required TResult orElse(),
@@ -599,6 +626,7 @@ class _$_UserNotFound<T> implements _UserNotFound<T> {
     required TResult Function(_AccountAlreadyExist<T> value)
         accountAlreadyExist,
     required TResult Function(_UserNotFound<T> value) userNotFound,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_WrongPassword<T> value) wrongPassword,
     required TResult Function(_AuthGenericFailure<T> value) authGenericFailure,
   }) {
@@ -612,6 +640,7 @@ class _$_UserNotFound<T> implements _UserNotFound<T> {
     TResult? Function(_WeekPassword<T> value)? weekPassword,
     TResult? Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult? Function(_UserNotFound<T> value)? userNotFound,
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
     TResult? Function(_WrongPassword<T> value)? wrongPassword,
     TResult? Function(_AuthGenericFailure<T> value)? authGenericFailure,
   }) {
@@ -625,6 +654,7 @@ class _$_UserNotFound<T> implements _UserNotFound<T> {
     TResult Function(_WeekPassword<T> value)? weekPassword,
     TResult Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult Function(_UserNotFound<T> value)? userNotFound,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_WrongPassword<T> value)? wrongPassword,
     TResult Function(_AuthGenericFailure<T> value)? authGenericFailure,
     required TResult orElse(),
@@ -638,6 +668,139 @@ class _$_UserNotFound<T> implements _UserNotFound<T> {
 
 abstract class _UserNotFound<T> implements AuthFailure<T> {
   const factory _UserNotFound() = _$_UserNotFound<T>;
+}
+
+/// @nodoc
+abstract class _$$_InvalidEmailCopyWith<T, $Res> {
+  factory _$$_InvalidEmailCopyWith(
+          _$_InvalidEmail<T> value, $Res Function(_$_InvalidEmail<T>) then) =
+      __$$_InvalidEmailCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$_InvalidEmailCopyWithImpl<T, $Res>
+    extends _$AuthFailureCopyWithImpl<T, $Res, _$_InvalidEmail<T>>
+    implements _$$_InvalidEmailCopyWith<T, $Res> {
+  __$$_InvalidEmailCopyWithImpl(
+      _$_InvalidEmail<T> _value, $Res Function(_$_InvalidEmail<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_InvalidEmail<T> implements _InvalidEmail<T> {
+  const _$_InvalidEmail();
+
+  @override
+  String toString() {
+    return 'AuthFailure<$T>.invalidEmail()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_InvalidEmail<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() networkFailure,
+    required TResult Function() weekPassword,
+    required TResult Function(T email) accountAlreadyExist,
+    required TResult Function() userNotFound,
+    required TResult Function() invalidEmail,
+    required TResult Function() wrongPassword,
+    required TResult Function(T failedValue) authGenericFailure,
+  }) {
+    return invalidEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? networkFailure,
+    TResult? Function()? weekPassword,
+    TResult? Function(T email)? accountAlreadyExist,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? wrongPassword,
+    TResult? Function(T failedValue)? authGenericFailure,
+  }) {
+    return invalidEmail?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? networkFailure,
+    TResult Function()? weekPassword,
+    TResult Function(T email)? accountAlreadyExist,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidEmail,
+    TResult Function()? wrongPassword,
+    TResult Function(T failedValue)? authGenericFailure,
+    required TResult orElse(),
+  }) {
+    if (invalidEmail != null) {
+      return invalidEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NetworkFailure<T> value) networkFailure,
+    required TResult Function(_WeekPassword<T> value) weekPassword,
+    required TResult Function(_AccountAlreadyExist<T> value)
+        accountAlreadyExist,
+    required TResult Function(_UserNotFound<T> value) userNotFound,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
+    required TResult Function(_WrongPassword<T> value) wrongPassword,
+    required TResult Function(_AuthGenericFailure<T> value) authGenericFailure,
+  }) {
+    return invalidEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_NetworkFailure<T> value)? networkFailure,
+    TResult? Function(_WeekPassword<T> value)? weekPassword,
+    TResult? Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
+    TResult? Function(_UserNotFound<T> value)? userNotFound,
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(_WrongPassword<T> value)? wrongPassword,
+    TResult? Function(_AuthGenericFailure<T> value)? authGenericFailure,
+  }) {
+    return invalidEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NetworkFailure<T> value)? networkFailure,
+    TResult Function(_WeekPassword<T> value)? weekPassword,
+    TResult Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
+    TResult Function(_UserNotFound<T> value)? userNotFound,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_WrongPassword<T> value)? wrongPassword,
+    TResult Function(_AuthGenericFailure<T> value)? authGenericFailure,
+    required TResult orElse(),
+  }) {
+    if (invalidEmail != null) {
+      return invalidEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidEmail<T> implements AuthFailure<T> {
+  const factory _InvalidEmail() = _$_InvalidEmail<T>;
 }
 
 /// @nodoc
@@ -682,6 +845,7 @@ class _$_WrongPassword<T> implements _WrongPassword<T> {
     required TResult Function() weekPassword,
     required TResult Function(T email) accountAlreadyExist,
     required TResult Function() userNotFound,
+    required TResult Function() invalidEmail,
     required TResult Function() wrongPassword,
     required TResult Function(T failedValue) authGenericFailure,
   }) {
@@ -695,6 +859,7 @@ class _$_WrongPassword<T> implements _WrongPassword<T> {
     TResult? Function()? weekPassword,
     TResult? Function(T email)? accountAlreadyExist,
     TResult? Function()? userNotFound,
+    TResult? Function()? invalidEmail,
     TResult? Function()? wrongPassword,
     TResult? Function(T failedValue)? authGenericFailure,
   }) {
@@ -708,6 +873,7 @@ class _$_WrongPassword<T> implements _WrongPassword<T> {
     TResult Function()? weekPassword,
     TResult Function(T email)? accountAlreadyExist,
     TResult Function()? userNotFound,
+    TResult Function()? invalidEmail,
     TResult Function()? wrongPassword,
     TResult Function(T failedValue)? authGenericFailure,
     required TResult orElse(),
@@ -726,6 +892,7 @@ class _$_WrongPassword<T> implements _WrongPassword<T> {
     required TResult Function(_AccountAlreadyExist<T> value)
         accountAlreadyExist,
     required TResult Function(_UserNotFound<T> value) userNotFound,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_WrongPassword<T> value) wrongPassword,
     required TResult Function(_AuthGenericFailure<T> value) authGenericFailure,
   }) {
@@ -739,6 +906,7 @@ class _$_WrongPassword<T> implements _WrongPassword<T> {
     TResult? Function(_WeekPassword<T> value)? weekPassword,
     TResult? Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult? Function(_UserNotFound<T> value)? userNotFound,
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
     TResult? Function(_WrongPassword<T> value)? wrongPassword,
     TResult? Function(_AuthGenericFailure<T> value)? authGenericFailure,
   }) {
@@ -752,6 +920,7 @@ class _$_WrongPassword<T> implements _WrongPassword<T> {
     TResult Function(_WeekPassword<T> value)? weekPassword,
     TResult Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult Function(_UserNotFound<T> value)? userNotFound,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_WrongPassword<T> value)? wrongPassword,
     TResult Function(_AuthGenericFailure<T> value)? authGenericFailure,
     required TResult orElse(),
@@ -838,6 +1007,7 @@ class _$_AuthGenericFailure<T> implements _AuthGenericFailure<T> {
     required TResult Function() weekPassword,
     required TResult Function(T email) accountAlreadyExist,
     required TResult Function() userNotFound,
+    required TResult Function() invalidEmail,
     required TResult Function() wrongPassword,
     required TResult Function(T failedValue) authGenericFailure,
   }) {
@@ -851,6 +1021,7 @@ class _$_AuthGenericFailure<T> implements _AuthGenericFailure<T> {
     TResult? Function()? weekPassword,
     TResult? Function(T email)? accountAlreadyExist,
     TResult? Function()? userNotFound,
+    TResult? Function()? invalidEmail,
     TResult? Function()? wrongPassword,
     TResult? Function(T failedValue)? authGenericFailure,
   }) {
@@ -864,6 +1035,7 @@ class _$_AuthGenericFailure<T> implements _AuthGenericFailure<T> {
     TResult Function()? weekPassword,
     TResult Function(T email)? accountAlreadyExist,
     TResult Function()? userNotFound,
+    TResult Function()? invalidEmail,
     TResult Function()? wrongPassword,
     TResult Function(T failedValue)? authGenericFailure,
     required TResult orElse(),
@@ -882,6 +1054,7 @@ class _$_AuthGenericFailure<T> implements _AuthGenericFailure<T> {
     required TResult Function(_AccountAlreadyExist<T> value)
         accountAlreadyExist,
     required TResult Function(_UserNotFound<T> value) userNotFound,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_WrongPassword<T> value) wrongPassword,
     required TResult Function(_AuthGenericFailure<T> value) authGenericFailure,
   }) {
@@ -895,6 +1068,7 @@ class _$_AuthGenericFailure<T> implements _AuthGenericFailure<T> {
     TResult? Function(_WeekPassword<T> value)? weekPassword,
     TResult? Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult? Function(_UserNotFound<T> value)? userNotFound,
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
     TResult? Function(_WrongPassword<T> value)? wrongPassword,
     TResult? Function(_AuthGenericFailure<T> value)? authGenericFailure,
   }) {
@@ -908,6 +1082,7 @@ class _$_AuthGenericFailure<T> implements _AuthGenericFailure<T> {
     TResult Function(_WeekPassword<T> value)? weekPassword,
     TResult Function(_AccountAlreadyExist<T> value)? accountAlreadyExist,
     TResult Function(_UserNotFound<T> value)? userNotFound,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_WrongPassword<T> value)? wrongPassword,
     TResult Function(_AuthGenericFailure<T> value)? authGenericFailure,
     required TResult orElse(),

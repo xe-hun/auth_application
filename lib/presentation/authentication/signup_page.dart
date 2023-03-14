@@ -14,11 +14,12 @@ class SignupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AuthBloc, AuthState>(
       builder: (context, state) {
-        return PageLayout(
-          appBar: buildAppBar(),
-          body: state.maybeMap(
-            orElse: () => Container(),
-            notAuthenticated: (value) => SafeArea(
+        return state.maybeMap(
+          orElse: () => Container(),
+          notAuthenticated: (s) => PageLayout(
+            errorMessage: s.errorMessage,
+            isLoading: s.isLoading,
+            body: SafeArea(
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -26,13 +27,15 @@ class SignupPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       buildPageLabel(label: "REGISTER"),
-                      _buildSignupBody(onSignup: () {
-                        BlocProvider.of<AuthBloc>(context).add(
-                          AuthEvent.register(onSuccessful: () {
-                            context.router.push(const OtpRoute());
+                      _buildSignupBody(
+                          registerProperties: s.registerProperties,
+                          onSignup: () {
+                            BlocProvider.of<AuthBloc>(context).add(
+                              AuthEvent.register(onSuccessful: () {
+                                context.router.push(const OtpRoute());
+                              }),
+                            );
                           }),
-                        );
-                      }),
                       _buildLoginDialog(onPressed: () {
                         context.router.replace(const LoginRoute());
                       })
@@ -65,13 +68,16 @@ class SignupPage extends StatelessWidget {
         ]));
   }
 
-  Widget _buildSignupBody({required Function() onSignup}) {
+  Widget _buildSignupBody(
+      {required Function() onSignup,
+      required RegisterProperties registerProperties}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        buildTextInputField(label: 'Name'),
-        buildTextInputField(label: 'Email'),
-        buildTextInputField(label: 'Password'),
+        buildTextInputField(label: 'Name', tec: registerProperties.nameTEC),
+        buildTextInputField(label: 'Email', tec: registerProperties.emailTEC),
+        buildTextInputField(
+            label: 'Password', tec: registerProperties.passwordTEC),
         buildCustombutton(label: 'SIGN UP', onPressed: onSignup),
         SizedBox(height: spaceSizeMedium)
       ],

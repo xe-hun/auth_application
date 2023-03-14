@@ -6,12 +6,12 @@ class PageLayout extends HookWidget {
   const PageLayout({
     super.key,
     required this.body,
-    this.isLoading = false,
+    this.isLoading,
     this.errorMessage,
     this.appBar,
   });
   final Widget body;
-  final bool isLoading;
+  final bool? isLoading;
   final String? errorMessage;
   final PreferredSizeWidget? appBar;
 
@@ -32,7 +32,7 @@ class PageLayout extends HookWidget {
         children: [
           body,
           Visibility(
-            visible: isLoading,
+            visible: isLoading ?? false,
             child: SafeArea(
               child: Center(
                 child: Container(

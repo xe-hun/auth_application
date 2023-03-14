@@ -6,14 +6,19 @@ import 'package:auth_appication/presentation/sizes.dart';
 import 'package:auth_appication/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 
-class OtpPage extends StatelessWidget {
+class OtpPage extends HookWidget {
   const OtpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // useEffect((){
+    //   BlocProvider.of<AuthBloc>(context).add(AuthEvent)
+    // },[]);
+
     return PageLayout(
       appBar: buildAppBar(),
       body: SafeArea(

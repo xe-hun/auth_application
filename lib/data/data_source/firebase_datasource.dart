@@ -67,6 +67,8 @@ class FireBaseDatasourceImpl implements FireBaseDatasource {
         throw AuthFailure.accountAlreadyExist(email);
       } else if (e.code == 'network-request-failed') {
         throw const AuthFailure.networkFailure();
+      } else if (e.code == 'invalid-email') {
+        throw const AuthFailure.invalidEmail();
       }
 
       throw AuthFailure.authGenericFailure(failedValue: e.code);

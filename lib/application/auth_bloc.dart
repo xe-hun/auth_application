@@ -24,19 +24,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         register: (e) async {
           await state.mapOrNull(
             notAuthenticated: (s) async {
-              emit(s.copyWith(isLoadiing: true));
+              emit(s.copyWith(isLoading: true));
               (await authRepository.register(
                       name: s.registerProperties.name,
                       password: s.registerProperties.password,
                       email: s.registerProperties.email))
                   .fold(
                 (l) => emit(s.copyWith(
-                  isLoadiing: false,
-                  errorText: _getErrorText(l),
+                  isLoading: false,
+                  errorMessage: _getErrorText(l),
                 )),
                 (r) {
                   e.onSuccessful();
-                  emit(s.copyWith(isLoadiing: false));
+                  emit(s.copyWith(isLoading: false));
                 },
               );
             },
@@ -55,6 +55,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             'Account with email ${e.email} already exists',
         userNotFound: (e) => 'Enter a valid email or password',
         wrongPassword: (e) => 'Enter a valid email or password',
+        invalidEmail: (e) => 'Email is not valid',
         authGenericFailure: (e) => 'Error!');
   }
 }
