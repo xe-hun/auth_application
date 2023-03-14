@@ -10,10 +10,10 @@ import 'package:auto_route/annotations.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(
+      initial: true,
       page: InitializationPage,
     ),
     AutoRoute(
-      initial: true,
       page: AuthenticationPage,
       children: [
         AutoRoute(

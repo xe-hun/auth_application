@@ -1,3 +1,4 @@
+import 'package:auth_appication/presentation/page_layout.dart';
 import 'package:auth_appication/presentation/shared_widgets.dart';
 import 'package:auth_appication/presentation/sizes.dart';
 import 'package:auth_appication/router.gr.dart';
@@ -9,11 +10,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
+    return PageLayout(
+      appBar: buildAppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

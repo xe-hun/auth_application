@@ -1,4 +1,4 @@
-import 'package:auth_appication/application/bloc/auth_bloc.dart';
+import 'package:auth_appication/application/auth_bloc.dart';
 import 'package:auth_appication/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class InitializationPage extends StatelessWidget {
       },
       builder: (context, state) {
         return const Scaffold(
-          body: Placeholder(),
+          body: SizedBox(),
         );
       },
     );

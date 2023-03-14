@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:auth_appication/presentation/page_layout.dart';
 import 'package:auth_appication/presentation/shared_widgets.dart';
 import 'package:auth_appication/presentation/sizes.dart';
 import 'package:auth_appication/router.gr.dart';
@@ -13,7 +14,7 @@ class OtpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PageLayout(
       appBar: buildAppBar(),
       body: SafeArea(
         child: SingleChildScrollView(

@@ -69,11 +69,11 @@ class AppRouter extends _i7.RootStackRouter {
   List<_i7.RouteConfig> get routes => [
         _i7.RouteConfig(
           InitializationRoute.name,
-          path: '/initialization-page',
+          path: '/',
         ),
         _i7.RouteConfig(
           AuthenticationRoute.name,
-          path: '/',
+          path: '/authentication-page',
           children: [
             _i7.RouteConfig(
               LoginRoute.name,
@@ -105,7 +105,7 @@ class InitializationRoute extends _i7.PageRouteInfo<void> {
   const InitializationRoute()
       : super(
           InitializationRoute.name,
-          path: '/initialization-page',
+          path: '/',
         );
 
   static const String name = 'InitializationRoute';
@@ -117,7 +117,7 @@ class AuthenticationRoute extends _i7.PageRouteInfo<void> {
   const AuthenticationRoute({List<_i7.PageRouteInfo>? children})
       : super(
           AuthenticationRoute.name,
-          path: '/',
+          path: '/authentication-page',
           initialChildren: children,
         );
 

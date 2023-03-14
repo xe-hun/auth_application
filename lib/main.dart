@@ -1,11 +1,14 @@
-import 'package:auth_appication/application/bloc/auth_bloc.dart';
+import 'package:auth_appication/application/auth_bloc.dart';
 import 'package:auth_appication/injectible.dart';
 import 'package:auth_appication/router.gr.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+
+bool shouldUseFirebaseEmulator = false;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,6 +16,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  if (shouldUseFirebaseEmulator) {
+    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  }
+  configureDependencies();
 
   getIt.registerSingleton<AppRouter>(AppRouter());
 
@@ -28,7 +36,7 @@ class MyApp extends StatelessWidget {
     final appRouter = getIt<AppRouter>();
 
     return BlocProvider(
-      create: (context) => AuthBloc()..add(const AuthEvent.started()),
+      create: (context) => getIt<AuthBloc>()..add(const AuthEvent.started()),
       child: MaterialApp.router(
         title: 'Authentication Application',
         theme:
