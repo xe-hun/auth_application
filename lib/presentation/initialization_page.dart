@@ -10,15 +10,33 @@ class InitializationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthBloc, AuthState>(
+      listenWhen: (previous, current) =>
+          previous.runtimeType != current.runtimeType,
       listener: (context, state) {
-        if (state.mapOrNull(
-              authenticated: (value) => value,
-            ) !=
-            null) {
-          context.router.replace(const HomeRoute());
-        } else {
-          context.router.replace(const AuthenticationRoute());
-        }
+        state.mapOrNull(
+          authenticated: (e) {
+            context.router.replace(const HomeRoute());
+          },
+          notAuthenticated: (e) async {
+            context.router.replace(const AuthenticationRoute());
+            // if (e.loggedInButNotVerified) {
+            //   final router = context.router;
+            //   router.replaceNamed('/authentication-page/otp-page',
+            //       includePrefixMatches: true);
+
+            //   // BlocProvider.of<AuthBloc>(context).add(const AuthEvent.sendOtp());
+            // } else {
+            // }
+          },
+        );
+        // if (state.mapOrNull(
+        //       authenticated: (value) => value,
+        //     ) !=
+        //     null) {
+        //   context.router.replace(const HomeRoute());
+        // } else {
+        //   context.router.replace(const AuthenticationRoute());
+        // }
       },
       builder: (context, state) {
         return const Scaffold(

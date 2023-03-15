@@ -80,4 +80,10 @@ class AuthRepository implements IAuthRepository {
       return Left(AuthFailure.authGenericFailure(failedValue: e));
     }
   }
+
+  @override
+  Future<bool> get userIsVerified => firebaseDatasource.emailIsVerified();
+
+  @override
+  bool get userIsLoggedIn => firebaseDatasource.isLoggedIn;
 }

@@ -8,12 +8,16 @@ class PageLayout extends HookWidget {
     required this.body,
     this.isLoading,
     this.errorMessage,
+    this.snackbarMessage,
     this.appBar,
+    this.onDestroy,
   });
   final Widget body;
   final bool? isLoading;
   final String? errorMessage;
+  final String? snackbarMessage;
   final PreferredSizeWidget? appBar;
+  final Function()? onDestroy;
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +30,27 @@ class PageLayout extends HookWidget {
       return () => flushbar?.dismiss();
     }, [errorMessage]);
 
-    return Scaffold(
-      appBar: appBar,
-      body: Stack(
-        children: [
-          body,
-          Visibility(
-            visible: isLoading ?? false,
-            child: SafeArea(
+    useEffect(() {
+      Future.microtask(() {
+        if (snackbarMessage == null) {
+          return;
+        }
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(snackbarMessage!)));
+      });
+      return null;
+    }, [snackbarMessage]);
+
+    useEffect(() => onDestroy, []);
+
+    return SafeArea(
+      child: Scaffold(
+        // appBar: appBar,
+        body: Stack(
+          children: [
+            Scaffold(appBar: appBar, body: body),
+            Visibility(
+              visible: isLoading ?? false,
               child: Center(
                 child: Container(
                   width: double.infinity,
@@ -49,8 +66,8 @@ class PageLayout extends HookWidget {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

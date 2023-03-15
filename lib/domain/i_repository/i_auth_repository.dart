@@ -3,6 +3,9 @@ import 'package:auth_appication/domain/models/user_model.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class IAuthRepository {
+  Future<bool> get userIsVerified;
+  bool get userIsLoggedIn;
+
   Future<Either<AuthFailure, UserModel>> login(
       {required String email, required String password});
   Future<Either<AuthFailure, Unit>> register(

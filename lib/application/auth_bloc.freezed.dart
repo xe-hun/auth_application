@@ -20,10 +20,14 @@ mixin _$AuthEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() sendOtp,
-    required TResult Function(String otp, dynamic Function() onVerifySuccess)
+    required TResult Function() initializeOtpCountdown,
+    required TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
-    required TResult Function() login,
+    required TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)
+        login,
     required TResult Function(dynamic Function() onLogout) logout,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,10 +35,14 @@ mixin _$AuthEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? sendOtp,
-    TResult? Function(String otp, dynamic Function() onVerifySuccess)?
+    TResult? Function()? initializeOtpCountdown,
+    TResult? Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
-    TResult? Function()? login,
+    TResult? Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult? Function(dynamic Function() onLogout)? logout,
   }) =>
       throw _privateConstructorUsedError;
@@ -42,9 +50,14 @@ mixin _$AuthEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? sendOtp,
-    TResult Function(String otp, dynamic Function() onVerifySuccess)? verifyOtp,
+    TResult Function()? initializeOtpCountdown,
+    TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
+        verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
-    TResult Function()? login,
+    TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult Function(dynamic Function() onLogout)? logout,
     required TResult orElse(),
   }) =>
@@ -53,6 +66,8 @@ mixin _$AuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(InitializeOtpCountdown value)
+        initializeOtpCountdown,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Register value) register,
     required TResult Function(_Login value) login,
@@ -63,6 +78,7 @@ mixin _$AuthEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Register value)? register,
     TResult? Function(_Login value)? login,
@@ -73,6 +89,7 @@ mixin _$AuthEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Register value)? register,
     TResult Function(_Login value)? login,
@@ -138,10 +155,14 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() sendOtp,
-    required TResult Function(String otp, dynamic Function() onVerifySuccess)
+    required TResult Function() initializeOtpCountdown,
+    required TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
-    required TResult Function() login,
+    required TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)
+        login,
     required TResult Function(dynamic Function() onLogout) logout,
   }) {
     return started();
@@ -152,10 +173,14 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? sendOtp,
-    TResult? Function(String otp, dynamic Function() onVerifySuccess)?
+    TResult? Function()? initializeOtpCountdown,
+    TResult? Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
-    TResult? Function()? login,
+    TResult? Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult? Function(dynamic Function() onLogout)? logout,
   }) {
     return started?.call();
@@ -166,9 +191,14 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? sendOtp,
-    TResult Function(String otp, dynamic Function() onVerifySuccess)? verifyOtp,
+    TResult Function()? initializeOtpCountdown,
+    TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
+        verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
-    TResult Function()? login,
+    TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult Function(dynamic Function() onLogout)? logout,
     required TResult orElse(),
   }) {
@@ -183,6 +213,8 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(InitializeOtpCountdown value)
+        initializeOtpCountdown,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Register value) register,
     required TResult Function(_Login value) login,
@@ -196,6 +228,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Register value)? register,
     TResult? Function(_Login value)? login,
@@ -209,6 +242,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Register value)? register,
     TResult Function(_Login value)? login,
@@ -265,10 +299,14 @@ class _$_SendOtp implements _SendOtp {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() sendOtp,
-    required TResult Function(String otp, dynamic Function() onVerifySuccess)
+    required TResult Function() initializeOtpCountdown,
+    required TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
-    required TResult Function() login,
+    required TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)
+        login,
     required TResult Function(dynamic Function() onLogout) logout,
   }) {
     return sendOtp();
@@ -279,10 +317,14 @@ class _$_SendOtp implements _SendOtp {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? sendOtp,
-    TResult? Function(String otp, dynamic Function() onVerifySuccess)?
+    TResult? Function()? initializeOtpCountdown,
+    TResult? Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
-    TResult? Function()? login,
+    TResult? Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult? Function(dynamic Function() onLogout)? logout,
   }) {
     return sendOtp?.call();
@@ -293,9 +335,14 @@ class _$_SendOtp implements _SendOtp {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? sendOtp,
-    TResult Function(String otp, dynamic Function() onVerifySuccess)? verifyOtp,
+    TResult Function()? initializeOtpCountdown,
+    TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
+        verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
-    TResult Function()? login,
+    TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult Function(dynamic Function() onLogout)? logout,
     required TResult orElse(),
   }) {
@@ -310,6 +357,8 @@ class _$_SendOtp implements _SendOtp {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(InitializeOtpCountdown value)
+        initializeOtpCountdown,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Register value) register,
     required TResult Function(_Login value) login,
@@ -323,6 +372,7 @@ class _$_SendOtp implements _SendOtp {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Register value)? register,
     TResult? Function(_Login value)? login,
@@ -336,6 +386,7 @@ class _$_SendOtp implements _SendOtp {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Register value)? register,
     TResult Function(_Login value)? login,
@@ -354,12 +405,160 @@ abstract class _SendOtp implements AuthEvent {
 }
 
 /// @nodoc
+abstract class _$$InitializeOtpCountdownCopyWith<$Res> {
+  factory _$$InitializeOtpCountdownCopyWith(_$InitializeOtpCountdown value,
+          $Res Function(_$InitializeOtpCountdown) then) =
+      __$$InitializeOtpCountdownCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitializeOtpCountdownCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$InitializeOtpCountdown>
+    implements _$$InitializeOtpCountdownCopyWith<$Res> {
+  __$$InitializeOtpCountdownCopyWithImpl(_$InitializeOtpCountdown _value,
+      $Res Function(_$InitializeOtpCountdown) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InitializeOtpCountdown implements InitializeOtpCountdown {
+  const _$InitializeOtpCountdown();
+
+  @override
+  String toString() {
+    return 'AuthEvent.initializeOtpCountdown()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitializeOtpCountdown);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() sendOtp,
+    required TResult Function() initializeOtpCountdown,
+    required TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)
+        verifyOtp,
+    required TResult Function(dynamic Function() onSuccessful) register,
+    required TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)
+        login,
+    required TResult Function(dynamic Function() onLogout) logout,
+  }) {
+    return initializeOtpCountdown();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? sendOtp,
+    TResult? Function()? initializeOtpCountdown,
+    TResult? Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
+        verifyOtp,
+    TResult? Function(dynamic Function() onSuccessful)? register,
+    TResult? Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
+    TResult? Function(dynamic Function() onLogout)? logout,
+  }) {
+    return initializeOtpCountdown?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? sendOtp,
+    TResult Function()? initializeOtpCountdown,
+    TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
+        verifyOtp,
+    TResult Function(dynamic Function() onSuccessful)? register,
+    TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
+    TResult Function(dynamic Function() onLogout)? logout,
+    required TResult orElse(),
+  }) {
+    if (initializeOtpCountdown != null) {
+      return initializeOtpCountdown();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(InitializeOtpCountdown value)
+        initializeOtpCountdown,
+    required TResult Function(_VerifyOtp value) verifyOtp,
+    required TResult Function(_Register value) register,
+    required TResult Function(_Login value) login,
+    required TResult Function(_Logout value) logout,
+  }) {
+    return initializeOtpCountdown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(InitializeOtpCountdown value)? initializeOtpCountdown,
+    TResult? Function(_VerifyOtp value)? verifyOtp,
+    TResult? Function(_Register value)? register,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_Logout value)? logout,
+  }) {
+    return initializeOtpCountdown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(InitializeOtpCountdown value)? initializeOtpCountdown,
+    TResult Function(_VerifyOtp value)? verifyOtp,
+    TResult Function(_Register value)? register,
+    TResult Function(_Login value)? login,
+    TResult Function(_Logout value)? logout,
+    required TResult orElse(),
+  }) {
+    if (initializeOtpCountdown != null) {
+      return initializeOtpCountdown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InitializeOtpCountdown implements AuthEvent {
+  const factory InitializeOtpCountdown() = _$InitializeOtpCountdown;
+}
+
+/// @nodoc
 abstract class _$$_VerifyOtpCopyWith<$Res> {
   factory _$$_VerifyOtpCopyWith(
           _$_VerifyOtp value, $Res Function(_$_VerifyOtp) then) =
       __$$_VerifyOtpCopyWithImpl<$Res>;
   @useResult
-  $Res call({String otp, dynamic Function() onVerifySuccess});
+  $Res call(
+      {String otp,
+      dynamic Function() onVerifySuccess,
+      dynamic Function() onVerifyFailure});
 }
 
 /// @nodoc
@@ -375,6 +574,7 @@ class __$$_VerifyOtpCopyWithImpl<$Res>
   $Res call({
     Object? otp = null,
     Object? onVerifySuccess = null,
+    Object? onVerifyFailure = null,
   }) {
     return _then(_$_VerifyOtp(
       otp: null == otp
@@ -385,6 +585,10 @@ class __$$_VerifyOtpCopyWithImpl<$Res>
           ? _value.onVerifySuccess
           : onVerifySuccess // ignore: cast_nullable_to_non_nullable
               as dynamic Function(),
+      onVerifyFailure: null == onVerifyFailure
+          ? _value.onVerifyFailure
+          : onVerifyFailure // ignore: cast_nullable_to_non_nullable
+              as dynamic Function(),
     ));
   }
 }
@@ -392,16 +596,21 @@ class __$$_VerifyOtpCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_VerifyOtp implements _VerifyOtp {
-  const _$_VerifyOtp({required this.otp, required this.onVerifySuccess});
+  const _$_VerifyOtp(
+      {required this.otp,
+      required this.onVerifySuccess,
+      required this.onVerifyFailure});
 
   @override
   final String otp;
   @override
   final dynamic Function() onVerifySuccess;
+  @override
+  final dynamic Function() onVerifyFailure;
 
   @override
   String toString() {
-    return 'AuthEvent.verifyOtp(otp: $otp, onVerifySuccess: $onVerifySuccess)';
+    return 'AuthEvent.verifyOtp(otp: $otp, onVerifySuccess: $onVerifySuccess, onVerifyFailure: $onVerifyFailure)';
   }
 
   @override
@@ -411,11 +620,14 @@ class _$_VerifyOtp implements _VerifyOtp {
             other is _$_VerifyOtp &&
             (identical(other.otp, otp) || other.otp == otp) &&
             (identical(other.onVerifySuccess, onVerifySuccess) ||
-                other.onVerifySuccess == onVerifySuccess));
+                other.onVerifySuccess == onVerifySuccess) &&
+            (identical(other.onVerifyFailure, onVerifyFailure) ||
+                other.onVerifyFailure == onVerifyFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, otp, onVerifySuccess);
+  int get hashCode =>
+      Object.hash(runtimeType, otp, onVerifySuccess, onVerifyFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -428,13 +640,17 @@ class _$_VerifyOtp implements _VerifyOtp {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() sendOtp,
-    required TResult Function(String otp, dynamic Function() onVerifySuccess)
+    required TResult Function() initializeOtpCountdown,
+    required TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
-    required TResult Function() login,
+    required TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)
+        login,
     required TResult Function(dynamic Function() onLogout) logout,
   }) {
-    return verifyOtp(otp, onVerifySuccess);
+    return verifyOtp(otp, onVerifySuccess, onVerifyFailure);
   }
 
   @override
@@ -442,13 +658,17 @@ class _$_VerifyOtp implements _VerifyOtp {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? sendOtp,
-    TResult? Function(String otp, dynamic Function() onVerifySuccess)?
+    TResult? Function()? initializeOtpCountdown,
+    TResult? Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
-    TResult? Function()? login,
+    TResult? Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult? Function(dynamic Function() onLogout)? logout,
   }) {
-    return verifyOtp?.call(otp, onVerifySuccess);
+    return verifyOtp?.call(otp, onVerifySuccess, onVerifyFailure);
   }
 
   @override
@@ -456,14 +676,19 @@ class _$_VerifyOtp implements _VerifyOtp {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? sendOtp,
-    TResult Function(String otp, dynamic Function() onVerifySuccess)? verifyOtp,
+    TResult Function()? initializeOtpCountdown,
+    TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
+        verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
-    TResult Function()? login,
+    TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult Function(dynamic Function() onLogout)? logout,
     required TResult orElse(),
   }) {
     if (verifyOtp != null) {
-      return verifyOtp(otp, onVerifySuccess);
+      return verifyOtp(otp, onVerifySuccess, onVerifyFailure);
     }
     return orElse();
   }
@@ -473,6 +698,8 @@ class _$_VerifyOtp implements _VerifyOtp {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(InitializeOtpCountdown value)
+        initializeOtpCountdown,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Register value) register,
     required TResult Function(_Login value) login,
@@ -486,6 +713,7 @@ class _$_VerifyOtp implements _VerifyOtp {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Register value)? register,
     TResult? Function(_Login value)? login,
@@ -499,6 +727,7 @@ class _$_VerifyOtp implements _VerifyOtp {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Register value)? register,
     TResult Function(_Login value)? login,
@@ -515,10 +744,12 @@ class _$_VerifyOtp implements _VerifyOtp {
 abstract class _VerifyOtp implements AuthEvent {
   const factory _VerifyOtp(
       {required final String otp,
-      required final dynamic Function() onVerifySuccess}) = _$_VerifyOtp;
+      required final dynamic Function() onVerifySuccess,
+      required final dynamic Function() onVerifyFailure}) = _$_VerifyOtp;
 
   String get otp;
   dynamic Function() get onVerifySuccess;
+  dynamic Function() get onVerifyFailure;
   @JsonKey(ignore: true)
   _$$_VerifyOtpCopyWith<_$_VerifyOtp> get copyWith =>
       throw _privateConstructorUsedError;
@@ -591,10 +822,14 @@ class _$_Register implements _Register {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() sendOtp,
-    required TResult Function(String otp, dynamic Function() onVerifySuccess)
+    required TResult Function() initializeOtpCountdown,
+    required TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
-    required TResult Function() login,
+    required TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)
+        login,
     required TResult Function(dynamic Function() onLogout) logout,
   }) {
     return register(onSuccessful);
@@ -605,10 +840,14 @@ class _$_Register implements _Register {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? sendOtp,
-    TResult? Function(String otp, dynamic Function() onVerifySuccess)?
+    TResult? Function()? initializeOtpCountdown,
+    TResult? Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
-    TResult? Function()? login,
+    TResult? Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult? Function(dynamic Function() onLogout)? logout,
   }) {
     return register?.call(onSuccessful);
@@ -619,9 +858,14 @@ class _$_Register implements _Register {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? sendOtp,
-    TResult Function(String otp, dynamic Function() onVerifySuccess)? verifyOtp,
+    TResult Function()? initializeOtpCountdown,
+    TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
+        verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
-    TResult Function()? login,
+    TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult Function(dynamic Function() onLogout)? logout,
     required TResult orElse(),
   }) {
@@ -636,6 +880,8 @@ class _$_Register implements _Register {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(InitializeOtpCountdown value)
+        initializeOtpCountdown,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Register value) register,
     required TResult Function(_Login value) login,
@@ -649,6 +895,7 @@ class _$_Register implements _Register {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Register value)? register,
     TResult? Function(_Login value)? login,
@@ -662,6 +909,7 @@ class _$_Register implements _Register {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Register value)? register,
     TResult Function(_Login value)? login,
@@ -689,6 +937,9 @@ abstract class _Register implements AuthEvent {
 abstract class _$$_LoginCopyWith<$Res> {
   factory _$$_LoginCopyWith(_$_Login value, $Res Function(_$_Login) then) =
       __$$_LoginCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {dynamic Function() onSuccessful, dynamic Function() onNotVerified});
 }
 
 /// @nodoc
@@ -697,39 +948,77 @@ class __$$_LoginCopyWithImpl<$Res>
     implements _$$_LoginCopyWith<$Res> {
   __$$_LoginCopyWithImpl(_$_Login _value, $Res Function(_$_Login) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? onSuccessful = null,
+    Object? onNotVerified = null,
+  }) {
+    return _then(_$_Login(
+      onSuccessful: null == onSuccessful
+          ? _value.onSuccessful
+          : onSuccessful // ignore: cast_nullable_to_non_nullable
+              as dynamic Function(),
+      onNotVerified: null == onNotVerified
+          ? _value.onNotVerified
+          : onNotVerified // ignore: cast_nullable_to_non_nullable
+              as dynamic Function(),
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Login implements _Login {
-  const _$_Login();
+  const _$_Login({required this.onSuccessful, required this.onNotVerified});
+
+  @override
+  final dynamic Function() onSuccessful;
+  @override
+  final dynamic Function() onNotVerified;
 
   @override
   String toString() {
-    return 'AuthEvent.login()';
+    return 'AuthEvent.login(onSuccessful: $onSuccessful, onNotVerified: $onNotVerified)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Login);
+        (other.runtimeType == runtimeType &&
+            other is _$_Login &&
+            (identical(other.onSuccessful, onSuccessful) ||
+                other.onSuccessful == onSuccessful) &&
+            (identical(other.onNotVerified, onNotVerified) ||
+                other.onNotVerified == onNotVerified));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, onSuccessful, onNotVerified);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoginCopyWith<_$_Login> get copyWith =>
+      __$$_LoginCopyWithImpl<_$_Login>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() sendOtp,
-    required TResult Function(String otp, dynamic Function() onVerifySuccess)
+    required TResult Function() initializeOtpCountdown,
+    required TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
-    required TResult Function() login,
+    required TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)
+        login,
     required TResult Function(dynamic Function() onLogout) logout,
   }) {
-    return login();
+    return login(onSuccessful, onNotVerified);
   }
 
   @override
@@ -737,13 +1026,17 @@ class _$_Login implements _Login {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? sendOtp,
-    TResult? Function(String otp, dynamic Function() onVerifySuccess)?
+    TResult? Function()? initializeOtpCountdown,
+    TResult? Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
-    TResult? Function()? login,
+    TResult? Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult? Function(dynamic Function() onLogout)? logout,
   }) {
-    return login?.call();
+    return login?.call(onSuccessful, onNotVerified);
   }
 
   @override
@@ -751,14 +1044,19 @@ class _$_Login implements _Login {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? sendOtp,
-    TResult Function(String otp, dynamic Function() onVerifySuccess)? verifyOtp,
+    TResult Function()? initializeOtpCountdown,
+    TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
+        verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
-    TResult Function()? login,
+    TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult Function(dynamic Function() onLogout)? logout,
     required TResult orElse(),
   }) {
     if (login != null) {
-      return login();
+      return login(onSuccessful, onNotVerified);
     }
     return orElse();
   }
@@ -768,6 +1066,8 @@ class _$_Login implements _Login {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(InitializeOtpCountdown value)
+        initializeOtpCountdown,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Register value) register,
     required TResult Function(_Login value) login,
@@ -781,6 +1081,7 @@ class _$_Login implements _Login {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Register value)? register,
     TResult? Function(_Login value)? login,
@@ -794,6 +1095,7 @@ class _$_Login implements _Login {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Register value)? register,
     TResult Function(_Login value)? login,
@@ -808,7 +1110,15 @@ class _$_Login implements _Login {
 }
 
 abstract class _Login implements AuthEvent {
-  const factory _Login() = _$_Login;
+  const factory _Login(
+      {required final dynamic Function() onSuccessful,
+      required final dynamic Function() onNotVerified}) = _$_Login;
+
+  dynamic Function() get onSuccessful;
+  dynamic Function() get onNotVerified;
+  @JsonKey(ignore: true)
+  _$$_LoginCopyWith<_$_Login> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -876,10 +1186,14 @@ class _$_Logout implements _Logout {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() sendOtp,
-    required TResult Function(String otp, dynamic Function() onVerifySuccess)
+    required TResult Function() initializeOtpCountdown,
+    required TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
-    required TResult Function() login,
+    required TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)
+        login,
     required TResult Function(dynamic Function() onLogout) logout,
   }) {
     return logout(onLogout);
@@ -890,10 +1204,14 @@ class _$_Logout implements _Logout {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? sendOtp,
-    TResult? Function(String otp, dynamic Function() onVerifySuccess)?
+    TResult? Function()? initializeOtpCountdown,
+    TResult? Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
-    TResult? Function()? login,
+    TResult? Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult? Function(dynamic Function() onLogout)? logout,
   }) {
     return logout?.call(onLogout);
@@ -904,9 +1222,14 @@ class _$_Logout implements _Logout {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? sendOtp,
-    TResult Function(String otp, dynamic Function() onVerifySuccess)? verifyOtp,
+    TResult Function()? initializeOtpCountdown,
+    TResult Function(String otp, dynamic Function() onVerifySuccess,
+            dynamic Function() onVerifyFailure)?
+        verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
-    TResult Function()? login,
+    TResult Function(
+            dynamic Function() onSuccessful, dynamic Function() onNotVerified)?
+        login,
     TResult Function(dynamic Function() onLogout)? logout,
     required TResult orElse(),
   }) {
@@ -921,6 +1244,8 @@ class _$_Logout implements _Logout {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(InitializeOtpCountdown value)
+        initializeOtpCountdown,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Register value) register,
     required TResult Function(_Login value) login,
@@ -934,6 +1259,7 @@ class _$_Logout implements _Logout {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Register value)? register,
     TResult? Function(_Login value)? login,
@@ -947,6 +1273,7 @@ class _$_Logout implements _Logout {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(InitializeOtpCountdown value)? initializeOtpCountdown,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Register value)? register,
     TResult Function(_Login value)? login,
@@ -979,6 +1306,7 @@ mixin _$AuthState {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)
@@ -992,6 +1320,7 @@ mixin _$AuthState {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1005,6 +1334,7 @@ mixin _$AuthState {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1095,6 +1425,7 @@ class _$_Initial implements _Initial {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)
@@ -1111,6 +1442,7 @@ class _$_Initial implements _Initial {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1127,6 +1459,7 @@ class _$_Initial implements _Initial {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1221,6 +1554,7 @@ class _$_Authenticated implements _Authenticated {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)
@@ -1237,6 +1571,7 @@ class _$_Authenticated implements _Authenticated {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1253,6 +1588,7 @@ class _$_Authenticated implements _Authenticated {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1313,6 +1649,7 @@ abstract class _$$_NotAuthenticatedCopyWith<$Res> {
   $Res call(
       {RegisterProperties registerProperties,
       LoginProperties loginProperties,
+      bool loggedInButNotVerified,
       String? errorMessage,
       String? snackbarMessage,
       bool? isLoading});
@@ -1331,6 +1668,7 @@ class __$$_NotAuthenticatedCopyWithImpl<$Res>
   $Res call({
     Object? registerProperties = null,
     Object? loginProperties = null,
+    Object? loggedInButNotVerified = null,
     Object? errorMessage = freezed,
     Object? snackbarMessage = freezed,
     Object? isLoading = freezed,
@@ -1344,6 +1682,10 @@ class __$$_NotAuthenticatedCopyWithImpl<$Res>
           ? _value.loginProperties
           : loginProperties // ignore: cast_nullable_to_non_nullable
               as LoginProperties,
+      loggedInButNotVerified: null == loggedInButNotVerified
+          ? _value.loggedInButNotVerified
+          : loggedInButNotVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1366,6 +1708,7 @@ class _$_NotAuthenticated implements _NotAuthenticated {
   const _$_NotAuthenticated(
       {required this.registerProperties,
       required this.loginProperties,
+      this.loggedInButNotVerified = false,
       this.errorMessage,
       this.snackbarMessage,
       this.isLoading});
@@ -1375,6 +1718,9 @@ class _$_NotAuthenticated implements _NotAuthenticated {
   @override
   final LoginProperties loginProperties;
   @override
+  @JsonKey()
+  final bool loggedInButNotVerified;
+  @override
   final String? errorMessage;
   @override
   final String? snackbarMessage;
@@ -1383,7 +1729,7 @@ class _$_NotAuthenticated implements _NotAuthenticated {
 
   @override
   String toString() {
-    return 'AuthState.notAuthenticated(registerProperties: $registerProperties, loginProperties: $loginProperties, errorMessage: $errorMessage, snackbarMessage: $snackbarMessage, isLoading: $isLoading)';
+    return 'AuthState.notAuthenticated(registerProperties: $registerProperties, loginProperties: $loginProperties, loggedInButNotVerified: $loggedInButNotVerified, errorMessage: $errorMessage, snackbarMessage: $snackbarMessage, isLoading: $isLoading)';
   }
 
   @override
@@ -1395,6 +1741,8 @@ class _$_NotAuthenticated implements _NotAuthenticated {
                 other.registerProperties == registerProperties) &&
             (identical(other.loginProperties, loginProperties) ||
                 other.loginProperties == loginProperties) &&
+            (identical(other.loggedInButNotVerified, loggedInButNotVerified) ||
+                other.loggedInButNotVerified == loggedInButNotVerified) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.snackbarMessage, snackbarMessage) ||
@@ -1404,8 +1752,14 @@ class _$_NotAuthenticated implements _NotAuthenticated {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, registerProperties,
-      loginProperties, errorMessage, snackbarMessage, isLoading);
+  int get hashCode => Object.hash(
+      runtimeType,
+      registerProperties,
+      loginProperties,
+      loggedInButNotVerified,
+      errorMessage,
+      snackbarMessage,
+      isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -1421,13 +1775,14 @@ class _$_NotAuthenticated implements _NotAuthenticated {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)
         notAuthenticated,
   }) {
-    return notAuthenticated(registerProperties, loginProperties, errorMessage,
-        snackbarMessage, isLoading);
+    return notAuthenticated(registerProperties, loginProperties,
+        loggedInButNotVerified, errorMessage, snackbarMessage, isLoading);
   }
 
   @override
@@ -1438,13 +1793,14 @@ class _$_NotAuthenticated implements _NotAuthenticated {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
         notAuthenticated,
   }) {
     return notAuthenticated?.call(registerProperties, loginProperties,
-        errorMessage, snackbarMessage, isLoading);
+        loggedInButNotVerified, errorMessage, snackbarMessage, isLoading);
   }
 
   @override
@@ -1455,6 +1811,7 @@ class _$_NotAuthenticated implements _NotAuthenticated {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
+            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1462,8 +1819,8 @@ class _$_NotAuthenticated implements _NotAuthenticated {
     required TResult orElse(),
   }) {
     if (notAuthenticated != null) {
-      return notAuthenticated(registerProperties, loginProperties, errorMessage,
-          snackbarMessage, isLoading);
+      return notAuthenticated(registerProperties, loginProperties,
+          loggedInButNotVerified, errorMessage, snackbarMessage, isLoading);
     }
     return orElse();
   }
@@ -1507,12 +1864,14 @@ abstract class _NotAuthenticated implements AuthState {
   const factory _NotAuthenticated(
       {required final RegisterProperties registerProperties,
       required final LoginProperties loginProperties,
+      final bool loggedInButNotVerified,
       final String? errorMessage,
       final String? snackbarMessage,
       final bool? isLoading}) = _$_NotAuthenticated;
 
   RegisterProperties get registerProperties;
   LoginProperties get loginProperties;
+  bool get loggedInButNotVerified;
   String? get errorMessage;
   String? get snackbarMessage;
   bool? get isLoading;

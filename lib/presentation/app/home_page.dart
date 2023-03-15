@@ -10,7 +10,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('rin');
     return SafeArea(
       child: Scaffold(
           appBar: _buildAppbar(onLogout: () {
@@ -19,12 +18,10 @@ class HomePage extends StatelessWidget {
               context.router.replace(const AuthenticationRoute());
             }));
           }),
-          body: Container(
-            child: Center(
-              child: Text(
-                'You are Logged In',
-                style: TextStyle(fontSize: displaySize3),
-              ),
+          body: Center(
+            child: Text(
+              'You are Logged In',
+              style: TextStyle(fontSize: displaySize3),
             ),
           )),
     );

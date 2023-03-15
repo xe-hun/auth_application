@@ -22,7 +22,7 @@ abstract class FireBaseDatasource {
 
   Future<void> validateEmail();
 
-  Future<bool> emailIsValidated();
+  Future<bool> emailIsVerified();
 
   // Future<void> sendEmailVerificationLink();
 }
@@ -115,23 +115,29 @@ class FireBaseDatasourceImpl implements FireBaseDatasource {
   }
 
   final String _userCollectionName = 'user';
-  final String _validateField = 'verify';
+  final String _verifyField = 'verify';
 
   @override
   User? get getUser => firebaseAuth.currentUser;
 
   @override
-  Future<bool> emailIsValidated() async {
-    if (getUser == null) {
+  Future<bool> emailIsVerified() async {
+    try {
+      if (getUser == null) {
+        return false;
+      }
+
+      final userDoc = await fireStore
+          .collection(_userCollectionName)
+          .doc(getUser!.uid)
+          .get();
+      if (userDoc.exists) {
+        return userDoc.data()![_verifyField] as bool? ?? false;
+      }
+      return false;
+    } catch (e) {
       return false;
     }
-
-    final userDoc =
-        await fireStore.collection(_userCollectionName).doc(getUser!.uid).get();
-    if (userDoc.exists) {
-      return userDoc.data()![_validateField] as bool;
-    }
-    return false;
   }
 
   @override
@@ -139,7 +145,7 @@ class FireBaseDatasourceImpl implements FireBaseDatasource {
     await fireStore
         .collection(_userCollectionName)
         .doc(getUser!.uid)
-        .set({_validateField: true});
+        .set({_verifyField: true});
   }
 
   // @override

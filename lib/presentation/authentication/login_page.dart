@@ -17,6 +17,8 @@ class LoginPage extends StatelessWidget {
         return state.maybeMap(
           orElse: () => Container(),
           notAuthenticated: (s) => PageLayout(
+            errorMessage: s.errorMessage,
+            isLoading: s.isLoading,
             appBar: buildAppBar(),
             body: SafeArea(
               child: SingleChildScrollView(
@@ -30,7 +32,23 @@ class LoginPage extends StatelessWidget {
                       buildPageLabel(label: "LOGIN"),
 
                       _buildLoginBody(
-                          loginProperties: s.loginProperties, onLogin: () {}),
+                          loginProperties: s.loginProperties,
+                          onLogin: () {
+                            BlocProvider.of<AuthBloc>(context)
+                                .add(AuthEvent.login(
+                              onNotVerified: () {
+                                if (BlocProvider.of<AuthBloc>(context)
+                                    .canSendOtp) {
+                                  BlocProvider.of<AuthBloc>(context)
+                                      .add(const AuthEvent.sendOtp());
+                                }
+                                context.router.push(const OtpRoute());
+                              },
+                              onSuccessful: () {
+                                context.router.replace(const HomeRoute());
+                              },
+                            ));
+                          }),
                       _buildRegisterDialog(onPressed: () {
                         context.router.replace(const SignupRoute());
                       })
