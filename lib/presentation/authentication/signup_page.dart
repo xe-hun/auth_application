@@ -1,4 +1,5 @@
 import 'package:auth_appication/application/auth_bloc.dart';
+import 'package:auth_appication/domain/input_validators/input_validator.dart';
 import 'package:auth_appication/presentation/page_layout.dart';
 import 'package:auth_appication/presentation/shared_widgets.dart';
 import 'package:auth_appication/presentation/sizes.dart';
@@ -71,16 +72,35 @@ class SignupPage extends StatelessWidget {
   Widget _buildSignupBody(
       {required Function() onSignup,
       required RegisterProperties registerProperties}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        buildTextInputField(label: 'Name', tec: registerProperties.nameTEC),
-        buildTextInputField(label: 'Email', tec: registerProperties.emailTEC),
-        buildTextInputField(
-            label: 'Password', tec: registerProperties.passwordTEC),
-        buildCustombutton(label: 'SIGN UP', onPressed: onSignup),
-        SizedBox(height: spaceSizeMedium)
-      ],
+    return Form(
+      child: Builder(builder: (context) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            buildTextInputField(
+                validator: displayNameValidator,
+                label: 'Name',
+                tec: registerProperties.nameTEC),
+            buildTextInputField(
+                validator: emailValidator,
+                label: 'Email',
+                tec: registerProperties.emailTEC),
+            buildTextInputField(
+                validator: passwordValidator,
+                obscureText: true,
+                label: 'Password',
+                tec: registerProperties.passwordTEC),
+            buildCustombutton(
+                label: 'SIGN UP',
+                onPressed: () {
+                  if (Form.of(context).validate()) {
+                    onSignup();
+                  }
+                }),
+            SizedBox(height: spaceSizeMedium)
+          ],
+        );
+      }),
     );
   }
 }

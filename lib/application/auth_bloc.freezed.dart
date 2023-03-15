@@ -1306,7 +1306,6 @@ mixin _$AuthState {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)
@@ -1320,7 +1319,6 @@ mixin _$AuthState {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1334,7 +1332,6 @@ mixin _$AuthState {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1425,7 +1422,6 @@ class _$_Initial implements _Initial {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)
@@ -1442,7 +1438,6 @@ class _$_Initial implements _Initial {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1459,7 +1454,6 @@ class _$_Initial implements _Initial {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1554,7 +1548,6 @@ class _$_Authenticated implements _Authenticated {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)
@@ -1571,7 +1564,6 @@ class _$_Authenticated implements _Authenticated {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1588,7 +1580,6 @@ class _$_Authenticated implements _Authenticated {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1649,7 +1640,6 @@ abstract class _$$_NotAuthenticatedCopyWith<$Res> {
   $Res call(
       {RegisterProperties registerProperties,
       LoginProperties loginProperties,
-      bool loggedInButNotVerified,
       String? errorMessage,
       String? snackbarMessage,
       bool? isLoading});
@@ -1668,7 +1658,6 @@ class __$$_NotAuthenticatedCopyWithImpl<$Res>
   $Res call({
     Object? registerProperties = null,
     Object? loginProperties = null,
-    Object? loggedInButNotVerified = null,
     Object? errorMessage = freezed,
     Object? snackbarMessage = freezed,
     Object? isLoading = freezed,
@@ -1682,10 +1671,6 @@ class __$$_NotAuthenticatedCopyWithImpl<$Res>
           ? _value.loginProperties
           : loginProperties // ignore: cast_nullable_to_non_nullable
               as LoginProperties,
-      loggedInButNotVerified: null == loggedInButNotVerified
-          ? _value.loggedInButNotVerified
-          : loggedInButNotVerified // ignore: cast_nullable_to_non_nullable
-              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1708,7 +1693,6 @@ class _$_NotAuthenticated implements _NotAuthenticated {
   const _$_NotAuthenticated(
       {required this.registerProperties,
       required this.loginProperties,
-      this.loggedInButNotVerified = false,
       this.errorMessage,
       this.snackbarMessage,
       this.isLoading});
@@ -1718,9 +1702,6 @@ class _$_NotAuthenticated implements _NotAuthenticated {
   @override
   final LoginProperties loginProperties;
   @override
-  @JsonKey()
-  final bool loggedInButNotVerified;
-  @override
   final String? errorMessage;
   @override
   final String? snackbarMessage;
@@ -1729,7 +1710,7 @@ class _$_NotAuthenticated implements _NotAuthenticated {
 
   @override
   String toString() {
-    return 'AuthState.notAuthenticated(registerProperties: $registerProperties, loginProperties: $loginProperties, loggedInButNotVerified: $loggedInButNotVerified, errorMessage: $errorMessage, snackbarMessage: $snackbarMessage, isLoading: $isLoading)';
+    return 'AuthState.notAuthenticated(registerProperties: $registerProperties, loginProperties: $loginProperties, errorMessage: $errorMessage, snackbarMessage: $snackbarMessage, isLoading: $isLoading)';
   }
 
   @override
@@ -1741,8 +1722,6 @@ class _$_NotAuthenticated implements _NotAuthenticated {
                 other.registerProperties == registerProperties) &&
             (identical(other.loginProperties, loginProperties) ||
                 other.loginProperties == loginProperties) &&
-            (identical(other.loggedInButNotVerified, loggedInButNotVerified) ||
-                other.loggedInButNotVerified == loggedInButNotVerified) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.snackbarMessage, snackbarMessage) ||
@@ -1752,14 +1731,8 @@ class _$_NotAuthenticated implements _NotAuthenticated {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      registerProperties,
-      loginProperties,
-      loggedInButNotVerified,
-      errorMessage,
-      snackbarMessage,
-      isLoading);
+  int get hashCode => Object.hash(runtimeType, registerProperties,
+      loginProperties, errorMessage, snackbarMessage, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -1775,14 +1748,13 @@ class _$_NotAuthenticated implements _NotAuthenticated {
     required TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)
         notAuthenticated,
   }) {
-    return notAuthenticated(registerProperties, loginProperties,
-        loggedInButNotVerified, errorMessage, snackbarMessage, isLoading);
+    return notAuthenticated(registerProperties, loginProperties, errorMessage,
+        snackbarMessage, isLoading);
   }
 
   @override
@@ -1793,14 +1765,13 @@ class _$_NotAuthenticated implements _NotAuthenticated {
     TResult? Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
         notAuthenticated,
   }) {
     return notAuthenticated?.call(registerProperties, loginProperties,
-        loggedInButNotVerified, errorMessage, snackbarMessage, isLoading);
+        errorMessage, snackbarMessage, isLoading);
   }
 
   @override
@@ -1811,7 +1782,6 @@ class _$_NotAuthenticated implements _NotAuthenticated {
     TResult Function(
             RegisterProperties registerProperties,
             LoginProperties loginProperties,
-            bool loggedInButNotVerified,
             String? errorMessage,
             String? snackbarMessage,
             bool? isLoading)?
@@ -1819,8 +1789,8 @@ class _$_NotAuthenticated implements _NotAuthenticated {
     required TResult orElse(),
   }) {
     if (notAuthenticated != null) {
-      return notAuthenticated(registerProperties, loginProperties,
-          loggedInButNotVerified, errorMessage, snackbarMessage, isLoading);
+      return notAuthenticated(registerProperties, loginProperties, errorMessage,
+          snackbarMessage, isLoading);
     }
     return orElse();
   }
@@ -1864,14 +1834,12 @@ abstract class _NotAuthenticated implements AuthState {
   const factory _NotAuthenticated(
       {required final RegisterProperties registerProperties,
       required final LoginProperties loginProperties,
-      final bool loggedInButNotVerified,
       final String? errorMessage,
       final String? snackbarMessage,
       final bool? isLoading}) = _$_NotAuthenticated;
 
   RegisterProperties get registerProperties;
   LoginProperties get loginProperties;
-  bool get loggedInButNotVerified;
   String? get errorMessage;
   String? get snackbarMessage;
   bool? get isLoading;

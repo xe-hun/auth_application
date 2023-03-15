@@ -1,8 +1,13 @@
+import 'package:auth_appication/domain/failures/value_failure.dart';
 import 'package:auth_appication/presentation/sizes.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
 Widget buildTextInputField(
-    {required String label, required TextEditingController tec}) {
+    {required String label,
+    required TextEditingController tec,
+    Either<ValueFailure, String> Function(String)? validator,
+    bool obscureText = false}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -14,7 +19,16 @@ Widget buildTextInputField(
         ),
       ),
       const SizedBox(height: 8),
-      TextField(
+      TextFormField(
+        validator: (value) => validator?.call(value!).fold(
+            (l) => l.when(
+                  invalidEmail: () => 'Please Enter a valid Email!',
+                  stringTooShort: (value) => '$value is too short!',
+                  empty: (value) => '$value can not be empty!',
+                ),
+            (r) => null),
+        obscureText: obscureText,
+        obscuringCharacter: '●',
         controller: tec,
         style: TextStyle(fontSize: displaySize2),
         decoration: InputDecoration(

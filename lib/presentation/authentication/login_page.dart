@@ -1,4 +1,5 @@
 import 'package:auth_appication/application/auth_bloc.dart';
+import 'package:auth_appication/domain/input_validators/input_validator.dart';
 import 'package:auth_appication/presentation/page_layout.dart';
 import 'package:auth_appication/presentation/shared_widgets.dart';
 import 'package:auth_appication/presentation/sizes.dart';
@@ -83,15 +84,31 @@ class LoginPage extends StatelessWidget {
 
   Widget _buildLoginBody(
       {required Function() onLogin, required LoginProperties loginProperties}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        buildTextInputField(label: 'Email', tec: loginProperties.emailTEC),
-        buildTextInputField(
-            label: 'Password', tec: loginProperties.passwordTEC),
-        buildCustombutton(label: "LOGIN", onPressed: onLogin),
-        SizedBox(height: spaceSizeMedium)
-      ],
+    return Form(
+      child: Builder(builder: (context) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            buildTextInputField(
+                validator: emailValidator,
+                label: 'Email',
+                tec: loginProperties.emailTEC),
+            buildTextInputField(
+                validator: passwordValidator,
+                obscureText: true,
+                label: 'Password',
+                tec: loginProperties.passwordTEC),
+            buildCustombutton(
+                label: "LOGIN",
+                onPressed: () {
+                  if (Form.of(context).validate()) {
+                    onLogin();
+                  }
+                }),
+            SizedBox(height: spaceSizeMedium)
+          ],
+        );
+      }),
     );
   }
 }
