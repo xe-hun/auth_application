@@ -46,8 +46,8 @@ class LoginProperties {
   final TextEditingController _passwordTEC = TextEditingController();
   final TextEditingController _emailTEC = TextEditingController();
 
-  String get password => _passwordTEC.text;
-  String get email => _emailTEC.text;
+  String get password => _passwordTEC.text.trim();
+  String get email => _emailTEC.text.trim();
 
   TextEditingController get passwordTEC => _passwordTEC;
   TextEditingController get emailTEC => _emailTEC;

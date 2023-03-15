@@ -57,30 +57,35 @@ class PageLayout extends HookWidget {
 
     // useEffect(() => onDestroy, []);
 
-    return SafeArea(
-      child: Scaffold(
-        // appBar: appBar,
-        body: Stack(
-          children: [
-            Scaffold(appBar: appBar, body: body),
-            Visibility(
-              visible: isLoading ?? false,
-              child: Center(
-                child: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  decoration: const BoxDecoration(color: Colors.black54),
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: LinearProgressIndicator(
-                      minHeight: 3,
-                      color: Theme.of(context).colorScheme.tertiary,
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: SafeArea(
+        child: Scaffold(
+          // appBar: appBar,
+          body: Stack(
+            children: [
+              Scaffold(appBar: appBar, body: body),
+              Visibility(
+                visible: isLoading ?? false,
+                child: Center(
+                  child: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    decoration: const BoxDecoration(color: Colors.black54),
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: LinearProgressIndicator(
+                        minHeight: 3,
+                        color: Theme.of(context).colorScheme.tertiary,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

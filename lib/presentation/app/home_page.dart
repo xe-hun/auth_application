@@ -1,5 +1,5 @@
 import 'package:auth_appication/application/auth_bloc.dart';
-import 'package:auth_appication/presentation/sizes.dart';
+import 'package:auth_appication/presentation/shared/sizes.dart';
 import 'package:auth_appication/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
