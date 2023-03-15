@@ -8,7 +8,7 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.verifyOtp(
       {required String otp,
       required Function() onVerifySuccess,
-      required Function() onVerifyFailure}) = _VerifyOtp;
+      required Function(String errorMessage) onVerifyFailure}) = _VerifyOtp;
   const factory AuthEvent.register({required Function() onSuccessful}) =
       _Register;
 

@@ -21,27 +21,41 @@ class PageLayout extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Do not show message when a page is created
+    //Only show when it is refershed;
+    final showMessage = useRef(false);
+    final flushBar = useRef<Flushbar?>(null);
     useEffect(() {
-      late final Flushbar? flushbar;
-      Future.microtask(() {
-        flushbar = _buildErrorFlushbar(context)(errorMessage)?..show(context);
-        FocusScope.of(context).unfocus();
+      if (showMessage.value == false) {
+        showMessage.value = true;
+        return null;
+      }
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        if (flushBar.value?.isShowing() == true) {
+          await flushBar.value?.dismiss();
+        }
+        if (context.mounted) {
+          flushBar.value = _buildErrorFlushbar(context)(errorMessage)
+            ?..show(context);
+          FocusScope.of(context).unfocus();
+        }
       });
-      return () => flushbar?.dismiss();
+      return () => flushBar.value?.dismiss();
     }, [errorMessage]);
 
     useEffect(() {
       Future.microtask(() {
-        if (snackbarMessage == null) {
+        if (snackbarMessage == null || showMessage.value == false) {
           return;
         }
+        ScaffoldMessenger.of(context).clearSnackBars();
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text(snackbarMessage!)));
       });
       return null;
     }, [snackbarMessage]);
 
-    useEffect(() => onDestroy, []);
+    // useEffect(() => onDestroy, []);
 
     return SafeArea(
       child: Scaffold(

@@ -26,9 +26,9 @@ class RegisterProperties {
   final TextEditingController _emailTEC = TextEditingController();
   final TextEditingController _passwordTEC = TextEditingController();
 
-  String get name => _nameTEC.text;
-  String get email => _emailTEC.text;
-  String get password => _passwordTEC.text;
+  String get name => _nameTEC.text.trim();
+  String get email => _emailTEC.text.trim();
+  String get password => _passwordTEC.text.trim();
 
   TextEditingController get nameTEC => _nameTEC;
   TextEditingController get emailTEC => _emailTEC;

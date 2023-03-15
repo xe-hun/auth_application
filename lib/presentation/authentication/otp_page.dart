@@ -17,16 +17,8 @@ class OtpPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    // useEffect(() {
-    //   BlocProvider.of<AuthBloc>(context).add(const AuthEvent.sendOtp());
-    //   return null;
-    // }, []);
-
     final otpTEC = useRef(OtpFieldController());
-
-    // final countdown = useValueNotifier<int>(120);
-
-    // final useEffect(())
+    // final Flushbar = useState<String?>(null);
 
     return BlocBuilder<AuthBloc, AuthState>(
       builder: (context, state) {
@@ -61,8 +53,9 @@ class OtpPage extends HookWidget {
                                     onVerifySuccess: () {
                                       context.router.replace(const HomeRoute());
                                     },
-                                    onVerifyFailure: () {
+                                    onVerifyFailure: (errorMessage) {
                                       otpTEC.value.clear();
+                                      FocusScope.of(context).unfocus();
                                     }));
                           }),
                       _buildOtpDialog(),

@@ -22,7 +22,7 @@ mixin _$AuthEvent {
     required TResult Function() sendOtp,
     required TResult Function() initializeOtpCountdown,
     required TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)
+            dynamic Function(String) onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
     required TResult Function(
@@ -37,7 +37,7 @@ mixin _$AuthEvent {
     TResult? Function()? sendOtp,
     TResult? Function()? initializeOtpCountdown,
     TResult? Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
     TResult? Function(
@@ -52,7 +52,7 @@ mixin _$AuthEvent {
     TResult Function()? sendOtp,
     TResult Function()? initializeOtpCountdown,
     TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
     TResult Function(
@@ -157,7 +157,7 @@ class _$_Started implements _Started {
     required TResult Function() sendOtp,
     required TResult Function() initializeOtpCountdown,
     required TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)
+            dynamic Function(String) onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
     required TResult Function(
@@ -175,7 +175,7 @@ class _$_Started implements _Started {
     TResult? Function()? sendOtp,
     TResult? Function()? initializeOtpCountdown,
     TResult? Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
     TResult? Function(
@@ -193,7 +193,7 @@ class _$_Started implements _Started {
     TResult Function()? sendOtp,
     TResult Function()? initializeOtpCountdown,
     TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
     TResult Function(
@@ -301,7 +301,7 @@ class _$_SendOtp implements _SendOtp {
     required TResult Function() sendOtp,
     required TResult Function() initializeOtpCountdown,
     required TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)
+            dynamic Function(String) onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
     required TResult Function(
@@ -319,7 +319,7 @@ class _$_SendOtp implements _SendOtp {
     TResult? Function()? sendOtp,
     TResult? Function()? initializeOtpCountdown,
     TResult? Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
     TResult? Function(
@@ -337,7 +337,7 @@ class _$_SendOtp implements _SendOtp {
     TResult Function()? sendOtp,
     TResult Function()? initializeOtpCountdown,
     TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
     TResult Function(
@@ -446,7 +446,7 @@ class _$InitializeOtpCountdown implements InitializeOtpCountdown {
     required TResult Function() sendOtp,
     required TResult Function() initializeOtpCountdown,
     required TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)
+            dynamic Function(String) onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
     required TResult Function(
@@ -464,7 +464,7 @@ class _$InitializeOtpCountdown implements InitializeOtpCountdown {
     TResult? Function()? sendOtp,
     TResult? Function()? initializeOtpCountdown,
     TResult? Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
     TResult? Function(
@@ -482,7 +482,7 @@ class _$InitializeOtpCountdown implements InitializeOtpCountdown {
     TResult Function()? sendOtp,
     TResult Function()? initializeOtpCountdown,
     TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
     TResult Function(
@@ -558,7 +558,7 @@ abstract class _$$_VerifyOtpCopyWith<$Res> {
   $Res call(
       {String otp,
       dynamic Function() onVerifySuccess,
-      dynamic Function() onVerifyFailure});
+      dynamic Function(String) onVerifyFailure});
 }
 
 /// @nodoc
@@ -588,7 +588,7 @@ class __$$_VerifyOtpCopyWithImpl<$Res>
       onVerifyFailure: null == onVerifyFailure
           ? _value.onVerifyFailure
           : onVerifyFailure // ignore: cast_nullable_to_non_nullable
-              as dynamic Function(),
+              as dynamic Function(String),
     ));
   }
 }
@@ -606,7 +606,7 @@ class _$_VerifyOtp implements _VerifyOtp {
   @override
   final dynamic Function() onVerifySuccess;
   @override
-  final dynamic Function() onVerifyFailure;
+  final dynamic Function(String) onVerifyFailure;
 
   @override
   String toString() {
@@ -642,7 +642,7 @@ class _$_VerifyOtp implements _VerifyOtp {
     required TResult Function() sendOtp,
     required TResult Function() initializeOtpCountdown,
     required TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)
+            dynamic Function(String) onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
     required TResult Function(
@@ -660,7 +660,7 @@ class _$_VerifyOtp implements _VerifyOtp {
     TResult? Function()? sendOtp,
     TResult? Function()? initializeOtpCountdown,
     TResult? Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
     TResult? Function(
@@ -678,7 +678,7 @@ class _$_VerifyOtp implements _VerifyOtp {
     TResult Function()? sendOtp,
     TResult Function()? initializeOtpCountdown,
     TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
     TResult Function(
@@ -745,11 +745,11 @@ abstract class _VerifyOtp implements AuthEvent {
   const factory _VerifyOtp(
       {required final String otp,
       required final dynamic Function() onVerifySuccess,
-      required final dynamic Function() onVerifyFailure}) = _$_VerifyOtp;
+      required final dynamic Function(String) onVerifyFailure}) = _$_VerifyOtp;
 
   String get otp;
   dynamic Function() get onVerifySuccess;
-  dynamic Function() get onVerifyFailure;
+  dynamic Function(String) get onVerifyFailure;
   @JsonKey(ignore: true)
   _$$_VerifyOtpCopyWith<_$_VerifyOtp> get copyWith =>
       throw _privateConstructorUsedError;
@@ -824,7 +824,7 @@ class _$_Register implements _Register {
     required TResult Function() sendOtp,
     required TResult Function() initializeOtpCountdown,
     required TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)
+            dynamic Function(String) onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
     required TResult Function(
@@ -842,7 +842,7 @@ class _$_Register implements _Register {
     TResult? Function()? sendOtp,
     TResult? Function()? initializeOtpCountdown,
     TResult? Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
     TResult? Function(
@@ -860,7 +860,7 @@ class _$_Register implements _Register {
     TResult Function()? sendOtp,
     TResult Function()? initializeOtpCountdown,
     TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
     TResult Function(
@@ -1010,7 +1010,7 @@ class _$_Login implements _Login {
     required TResult Function() sendOtp,
     required TResult Function() initializeOtpCountdown,
     required TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)
+            dynamic Function(String) onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
     required TResult Function(
@@ -1028,7 +1028,7 @@ class _$_Login implements _Login {
     TResult? Function()? sendOtp,
     TResult? Function()? initializeOtpCountdown,
     TResult? Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
     TResult? Function(
@@ -1046,7 +1046,7 @@ class _$_Login implements _Login {
     TResult Function()? sendOtp,
     TResult Function()? initializeOtpCountdown,
     TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
     TResult Function(
@@ -1188,7 +1188,7 @@ class _$_Logout implements _Logout {
     required TResult Function() sendOtp,
     required TResult Function() initializeOtpCountdown,
     required TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)
+            dynamic Function(String) onVerifyFailure)
         verifyOtp,
     required TResult Function(dynamic Function() onSuccessful) register,
     required TResult Function(
@@ -1206,7 +1206,7 @@ class _$_Logout implements _Logout {
     TResult? Function()? sendOtp,
     TResult? Function()? initializeOtpCountdown,
     TResult? Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult? Function(dynamic Function() onSuccessful)? register,
     TResult? Function(
@@ -1224,7 +1224,7 @@ class _$_Logout implements _Logout {
     TResult Function()? sendOtp,
     TResult Function()? initializeOtpCountdown,
     TResult Function(String otp, dynamic Function() onVerifySuccess,
-            dynamic Function() onVerifyFailure)?
+            dynamic Function(String) onVerifyFailure)?
         verifyOtp,
     TResult Function(dynamic Function() onSuccessful)? register,
     TResult Function(

@@ -8,41 +8,42 @@ Widget buildTextInputField(
     required TextEditingController tec,
     Either<ValueFailure, String> Function(String)? validator,
     bool obscureText = false}) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Text(
-          label,
-          style: TextStyle(fontSize: displaySize3, fontWeight: FontWeight.w500),
+  return SizedBox(
+    height: 120,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Text(
+            label,
+            style:
+                TextStyle(fontSize: displaySize3, fontWeight: FontWeight.w500),
+          ),
         ),
-      ),
-      const SizedBox(height: 8),
-      TextFormField(
-        validator: (value) => validator?.call(value!).fold(
-            (l) => l.when(
-                  invalidEmail: () => 'Please Enter a valid Email!',
-                  stringTooShort: (value) => '$value is too short!',
-                  empty: (value) => '$value can not be empty!',
-                ),
-            (r) => null),
-        obscureText: obscureText,
-        obscuringCharacter: '●',
-        controller: tec,
-        style: TextStyle(fontSize: displaySize2),
-        decoration: InputDecoration(
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          border: _buildInputBorder(),
-          enabledBorder: _buildInputBorder(),
-          focusedBorder: _buildInputBorder(),
+        const SizedBox(height: 8),
+        TextFormField(
+          validator: (value) => validator?.call(value!).fold(
+              (l) => l.when(
+                    invalidEmail: () => 'Please Enter a valid Email!',
+                    stringTooShort: (value) => '$value is too short!',
+                    empty: (value) => '$value can not be empty!',
+                  ),
+              (r) => null),
+          obscureText: obscureText,
+          obscuringCharacter: '●',
+          controller: tec,
+          style: TextStyle(fontSize: displaySize2),
+          decoration: InputDecoration(
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            border: _buildInputBorder(),
+            enabledBorder: _buildInputBorder(),
+            focusedBorder: _buildInputBorder(),
+          ),
         ),
-      ),
-      const SizedBox(
-        height: 30,
-      )
-    ],
+      ],
+    ),
   );
 }
 

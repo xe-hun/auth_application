@@ -45,6 +45,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 (r) async {
                   if (await authRepository.userIsVerified) {
                     e.onSuccessful();
+                    _disposeFormFieldResources(s);
                     emit(const AuthState.authenticated());
                   } else {
                     emit(s.copyWith(
@@ -109,16 +110,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         },
         verifyOtp: (e) async {
           await state.mapOrNull(notAuthenticated: (s) async {
-            // emit(s.copyWith(isLoading: true, errorMessage: null));
-            (await authRepository.verifyOtp(otp: e.otp)).fold((l) {
-              e.onVerifyFailure();
-              emit(s.copyWith(
-                errorMessage: _getErrorText(l),
-              ));
-            }, (r) {
-              e.onVerifySuccess();
-              emit(const AuthState.authenticated());
-            });
+            emit(s.copyWith(errorMessage: null, snackbarMessage: null));
+            await Future.delayed(const Duration(milliseconds: 1000));
+            await (await authRepository.verifyOtp(otp: e.otp)).fold(
+              (l) async {
+                final errorMessage = _getErrorText(l);
+                emit(s.copyWith(
+                    errorMessage: errorMessage, snackbarMessage: null));
+                e.onVerifyFailure(errorMessage);
+              },
+              (r) async {
+                e.onVerifySuccess();
+                _disposeFormFieldResources(s);
+                emit(const AuthState.authenticated());
+              },
+            );
           });
         },
         logout: (e) async {
@@ -151,6 +157,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         },
       );
     });
+  }
+
+  void _disposeFormFieldResources(_NotAuthenticated s) {
+    s.loginProperties.dispose();
+    s.registerProperties.dispose();
   }
 
   final timerCountdown = ValueNotifier<int>(0);
